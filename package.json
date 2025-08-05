@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://your-username.github.io/w3lalit",
+  "homepage": "https://w3lalitsaini.github.io/w3lalit",
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",
