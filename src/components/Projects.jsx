@@ -6,7 +6,7 @@ const projects = [
     {
         title: "Atoz Movies",
         subtitle: "SaaS Movie Review Website",
-        image: "/pro-img/Movie.png",
+        image: "/pro-img/Movie.jpg",
         description:
             "A dynamic movie review platform where users can explore, read reviews, and share ratings. Built with React, Tailwind, and NodeJS with a clean UI and real-time updates.",
         tags: ["React", "Tailwind", "NodeJS"],
@@ -15,7 +15,7 @@ const projects = [
     {
         title: "Furniture House",
         subtitle: "Furniture E-Commerce Web",
-        image: "/pro-img/Furnture.png",
+        image: "/pro-img/Furnture.jpg",
         description:
             "An elegant and functional e-commerce platform for premium furniture shopping. Fully responsive, secure checkout and optimized for speed.",
         tags: ["HTML", "CSS", "JavaScript"],
@@ -24,7 +24,7 @@ const projects = [
     {
         title: "Rajasthan Tourism",
         subtitle: "Tourism Agency Website",
-        image: "/pro-img/Toursim.png",
+        image: "/pro-img/Toursim.jpg",
         description:
             "A visually captivating tourism website featuring destination highlights, curated tour packages, and mobile-friendly booking features.",
         tags: ["React", "Tailwind", "API Integration"],
@@ -33,7 +33,7 @@ const projects = [
     {
         title: "Univ Result",
         subtitle: "Dynamic Blogging Web App",
-        image: "/pro-img/3.png",
+        image: "/pro-img/3.jpg",
         description:
             "A blog platform with categories, search filters, and fully responsive design. Built with Next.js, Tailwind, MongoDB, and NodeJS.",
         tags: ["Next.js", "Tailwind", "MongoDB", "NodeJS"],
@@ -42,7 +42,7 @@ const projects = [
     {
         title: "Lali Studio",
         subtitle: "Digital Photography Studio",
-        image: "/pro-img/Studio.png",
+        image: "/pro-img/Studio.jpg",
         description:
             "A professional studio website with galleries, booking services, and package details. Sleek UI optimized for performance.",
         tags: ["HTML", "CSS", "JS", "APIs"],
@@ -51,7 +51,7 @@ const projects = [
     {
         title: "Portfolio Website",
         subtitle: "Personal Portfolio",
-        image: "/pro-img/portfolio2.png",
+        image: "/pro-img/portfolio2.jpg",
         description:
             "A clean, responsive personal portfolio showcasing projects, skills, and achievements with smooth animations.",
         tags: ["HTML", "CSS", "JS"],
@@ -60,7 +60,7 @@ const projects = [
     {
         title: "Rajasthan Landing",
         subtitle: "Rangilo Rajasthan",
-        image: "/pro-img/Rajastha.png",
+        image: "/pro-img/Rajastha.jpg",
         description:
             "A striking landing page promoting Rajasthan tourism with engaging imagery and strong CTAs.",
         tags: ["HTML", "CSS", "JS", "GSAP"],
@@ -69,7 +69,7 @@ const projects = [
     {
         title: "Info Blog",
         subtitle: "Modern Blog App",
-        image: "/pro-img/1.png",
+        image: "/pro-img/1.jpg",
         description:
             "A feature-rich blog built with React, NodeJS and APIs. Fully responsive and optimized for smooth user experience.",
         tags: ["React", "APIs", "NodeJS"],
@@ -82,7 +82,7 @@ const Projects = ({
     title = "Projects - W3 Lalit Saini",
     description = "Showcasing a variety of my web development projects, including SaaS apps, e-commerce platforms, blogs, portfolios, and more.",
     url = "https://w3lalitsaini.com/projects",
-    image = "/pro-img/portfolio.png",
+    image = "/pro-img/portfolio.jpg",
 }) => {
     const [selectedProject, setSelectedProject] = useState(null);
     const [showAll, setShowAll] = useState(false);

@@ -5,13 +5,13 @@ const testimonials = [
         name: "John Doe",
         role: "CEO @ StartupX",
         text: "Lalit's designs completely transformed our online presence. His attention to detail and ability to understand our brand vision was remarkable. Highly recommend for anyone looking for a professional, sleek, and user-friendly website!",
-        avatar: "/avatar/john.png",
+        avatar: "/avatar/john.jpg",
     },
     {
         name: "Sarah Lee",
         role: "Marketing Head @ Brandify",
         text: "The website turned out better than we imagined. Lalit was extremely professional, communicative, and delivered work that was visually stunning and optimized for conversions. We couldn’t be happier with the results.",
-        avatar: "/avatar/sara.png",
+        avatar: "/avatar/sara.jpg",
     },
     {
         name: "Umesh",
@@ -23,13 +23,13 @@ const testimonials = [
         name: "Priya Sharma",
         role: "CTO @ TechNova",
         text: "Lalit delivered a website that not only looks amazing but also performs flawlessly. From pixel-perfect UI to clean backend integrations, the whole experience was smooth and enjoyable. Truly a reliable developer!",
-        avatar: "/avatar/priya.png",
+        avatar: "/avatar/priya.jpg",
     },
     {
         name: "David Miller",
         role: "Co-founder @ GrowthHackers",
         text: "Working with Lalit was a game-changer. He took our vision and made it a reality with innovative solutions, fast turnaround, and clear communication at every step. We’ve already seen an increase in customer engagement since launch!",
-        avatar: "/avatar/david.png",
+        avatar: "/avatar/david.jpg",
     },
 ];
 

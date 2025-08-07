@@ -33,7 +33,7 @@ const features = [
 ];
 
 const FeaturesSection = ({
-  addSEO = true,
+  addSEO = false,
   title = "Why Choose W3 Lalit Saini?",
   description = "Our unique web design process ensures better results, faster delivery, and exceptional user experiences.",
   url = "https://w3lalitsaini.com/#why-me",

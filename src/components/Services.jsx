@@ -33,7 +33,7 @@ const services = [
 ];
 
 const Services = ({
-  addSEO = true,
+  addSEO = false,
   title = "Our Digital Services - W3 Lalit Saini",
   description = "Explore the full range of services by W3 Lalit Saini including Web Design, Development, SEO, and Brand Strategy to help your business grow online.",
   url = "https://w3lalitsaini.com/#service",

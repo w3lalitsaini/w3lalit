@@ -1,16 +1,16 @@
 import React from "react";
 
 const projectLogos = [
-  { src: "/pro-img/Movie.png", alt: "Movie App Project" },
-  { src: "/pro-img/1.png", alt: "E-commerce Project" },
-  { src: "/pro-img/2.png", alt: "Blog Website Project" },
-  { src: "/pro-img/3.png", alt: "Business Website Project" },
-  { src: "/pro-img/4.png", alt: "Restaurant Project" },
-  { src: "/pro-img/business.png", alt: "Business Portfolio Project" },
-  { src: "/pro-img/Furnture.png", alt: "Furniture Store Project" },
-  { src: "/pro-img/portfolio.png", alt: "Portfolio Website Project" },
-  { src: "/pro-img/Toursim.png", alt: "Tourism Website Project" },
-  { src: "/pro-img/Studio.png", alt: "Studio Website Project" },
+  { src: "/pro-img/Movie.jpg", alt: "Movie App Project" },
+  { src: "/pro-img/1.jpg", alt: "E-commerce Project" },
+  { src: "/pro-img/2.jpg", alt: "Blog Website Project" },
+  { src: "/pro-img/3.jpg", alt: "Business Website Project" },
+  { src: "/pro-img/4.jpg", alt: "Restaurant Project" },
+  { src: "/pro-img/business.jpg", alt: "Business Portfolio Project" },
+  { src: "/pro-img/Furnture.jpg", alt: "Furniture Store Project" },
+  { src: "/pro-img/portfolio.jpg", alt: "Portfolio Website Project" },
+  { src: "/pro-img/Toursim.jpg", alt: "Tourism Website Project" },
+  { src: "/pro-img/Studio.jpg", alt: "Studio Website Project" },
 ];
 
 const InfinityScrollBar2 = () => {

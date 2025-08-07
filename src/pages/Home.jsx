@@ -36,21 +36,30 @@ const Home = () => {
         <meta name="robots" content="index, follow" />
 
         {/* Open Graph Tags (Facebook / Instagram / LinkedIn) */}
-        <meta property="og:title" content="W3 Lalit | Web Development Services" />
+        <meta
+          property="og:title"
+          content="W3 Lalit | Web Development Services"
+        />
         <meta
           property="og:description"
           content="Build high-performing websites with W3 Lalit. Premium web design, SEO, and full-stack development based in Sikar, Rajasthan."
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://w3lalitsaini.com" />
-        <meta property="og:image" content="https://w3lalitsaini.com/og-ab.jpg" />
+        <meta
+          property="og:image"
+          content="https://w3lalitsaini.com/og-ab.jpg"
+        />
         <meta property="og:locale" content="en_IN" />
         <meta property="og:site_name" content="W3 Lalit" />
 
         {/* Twitter Card Tags */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:creator" content="@w3lalitsaini" />
-        <meta name="twitter:title" content="W3 Lalit | Web Development Services" />
+        <meta
+          name="twitter:title"
+          content="W3 Lalit | Web Development Services"
+        />
         <meta
           name="twitter:description"
           content="Premium websites & SEO solutions. Full-stack development based in Sikar, Rajasthan, India."
@@ -82,7 +91,7 @@ const Home = () => {
               "https://www.instagram.com/w3lalitsaini",
               "https://www.linkedin.com/in/w3lalitsaini",
               "https://twitter.com/w3lalitsaini",
-              "https://facebook.com/w3lalitsaini"
+              "https://facebook.com/w3lalitsaini",
             ],
           })}
         </script>
@@ -95,12 +104,19 @@ const Home = () => {
       >
         <div className="flex flex-col justify-center items-center text-center text-white px-6 flex-1">
           <motion.div
-            className="bg-black/70 text-sm px-4 py-1 rounded-full mb-6"
+            className="bg-black border border-grayMid text-sm px-4 py-1 rounded-full mb-6 flex items-center gap-2"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9 }}
           >
-            <span className="text-green-400">●</span> Available now
+            <span className="relative flex h-3 w-3">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-100"></span>
+              <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+            </span>
+
+            <span>
+              Available now —  let's collaborate on your next big idea.
+            </span>
           </motion.div>
 
           <motion.h3
@@ -109,7 +125,7 @@ const Home = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.9 }}
           >
-            Hey! My name is Lalit Saini!
+            Hey! My name is Lalit Saini
           </motion.h3>
 
           <motion.h2
@@ -118,8 +134,13 @@ const Home = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.9 }}
           >
-            I help <span className="text-orange font-headline">brands</span> shine online with
-            <span className="text-orange font-headline"> high-converting</span> websites.
+            I help <span className="text-orange font-headline">brands</span>{" "}
+            shine online with
+            <span className="text-orange font-headline">
+              {" "}
+              high-converting
+            </span>{" "}
+            websites.
           </motion.h2>
 
           <motion.p
@@ -136,7 +157,7 @@ const Home = () => {
             className="mt-2 text-grayMid text-lg max-w-xl"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.8 , duration: 0.9}}
+            transition={{ delay: 0.8, duration: 0.9 }}
           >
             I design and develop websites that captivate users and deliver
             results.

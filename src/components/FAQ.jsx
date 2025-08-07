@@ -27,7 +27,7 @@ const faqs = [
 ];
 
 const FAQ = ({
-  addSEO = true,
+  addSEO = false,
   title = "FAQs - W3 Lalit Saini",
   description = "Frequently Asked Questions about my web design, development, hosting, maintenance and payment options.",
   url = "https://w3lalitsaini.com/#faQ",
