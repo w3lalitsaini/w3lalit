@@ -124,11 +124,11 @@ const Header = () => {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
                     transition={{ duration: 0.25 }}
-                    className="absolute mt-3 right-0 bg-dark border border-grayMid rounded-lg shadow-xl w-64 overflow-hidden"
+                    className="absolute mt-0 right-0 bg-dark border border-grayMid rounded-lg shadow-xl w-64 overflow-hidden"
                   >
                     <Link
                       to="/service"
-                      className="flex items-start gap-3 px-4 py-3 hover:bg-dark/70"
+                      className="flex items-start gap-3 px-4 py-3 hover:bg-slate-800"
                       onClick={closeAll}
                     >
                       <FaTools className="text-orange text-lg mt-1" />
@@ -142,7 +142,7 @@ const Header = () => {
 
                     <Link
                       to="/pricing"
-                      className="flex items-start gap-3 px-4 py-3 hover:bg-dark/70"
+                      className="flex items-start gap-3 px-4 py-3 hover:bg-slate-800"
                       onClick={closeAll}
                     >
                       <FaTags className="text-orange text-lg mt-1" />
@@ -156,7 +156,7 @@ const Header = () => {
 
                     <Link
                       to="/about"
-                      className="flex items-start gap-3 px-4 py-3 hover:bg-dark/70"
+                      className="flex items-start gap-3 px-4 py-3 hover:bg-slate-800"
                       onClick={closeAll}
                     >
                       <FaUser className="text-orange text-lg mt-1" />
@@ -202,13 +202,13 @@ const Header = () => {
               className="md:hidden absolute top-full mt-3 left-1/2 transform -translate-x-1/2 w-[92%] bg-dark border border-grayMid rounded-lg shadow-lg p-4 flex flex-col gap-8 items-center"
             >
               <button
-                onClick={() => scrollToSection("home")}
+                onClick={() => scrollToSection("#home")}
                 className="hover:text-orange duration-300"
               >
                 Home
               </button>
               <button
-                onClick={() => scrollToSection("why-me")}
+                onClick={() => scrollToSection("#why-me")}
                 className="hover:text-orange duration-300"
               >
                 Why me?
