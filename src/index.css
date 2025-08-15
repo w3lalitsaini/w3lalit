@@ -4,7 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 * {
   box-sizing: border-box;
   list-style: none;
@@ -27,13 +26,17 @@
   color: rgba(255, 255, 255, 0.3);
 }
 
-.mozilla{
+.mozilla {
   font-family: "Mozilla Headline", sans-serif;
 }
 
 @keyframes scroll {
-  100% { transform: translateX(-50%); }
-  0% { transform: translateX(0%); }
+  100% {
+    transform: translateX(-50%);
+  }
+  0% {
+    transform: translateX(0%);
+  }
 }
 
 .animate-scroll {
@@ -43,8 +46,12 @@
 }
 
 @keyframes scroll-reverse {
-  100% { transform: translateX(0%); }
-  0% { transform: translateX(-50%); }
+  100% {
+    transform: translateX(0%);
+  }
+  0% {
+    transform: translateX(-50%);
+  }
 }
 
 .animate-scroll-reverse {
@@ -53,5 +60,17 @@
   will-change: transform;
 }
 
+@keyframes dash {
+  0% {
+    stroke-dasharray: 0, 300;
+    stroke-dashoffset: 300;
+  }
+  100% {
+    stroke-dasharray: 300, 0;
+    stroke-dashoffset: 0;
+  }
+}
 
-
+.animate-dash {
+  animation: dash 2s ease forwards;
+}
