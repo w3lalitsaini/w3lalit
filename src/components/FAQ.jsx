@@ -42,7 +42,7 @@ const FAQ = ({
   return (
     <section
       id="faq"
-      className="w-full px-4 md:px-6 py-16 backdrop-blur-[1px]"
+      className="w-full px-4 md:px-6 py-16"
     >
       {/* SEO */}
       {addSEO && (
@@ -71,7 +71,7 @@ const FAQ = ({
           return (
             <div
               key={index}
-              className="w-full bg-dark/60 rounded-lg border border-grayMid/40 p-5 md:p-6 cursor-pointer hover:border-orange transition-colors duration-300"
+              className="w-full bg-dark/60 rounded-lg border border-grayMid/40 p-5 md:p-6 cursor-pointer hover:border-orange transition-colors duration-300 backdrop-blur-[1px]"
               onClick={() => toggleFAQ(index)}
               role="button"
               aria-expanded={isOpen}
@@ -91,9 +91,7 @@ const FAQ = ({
                   transition={{ duration: 0.3 }}
                 >
                   <FaChevronDown
-                    className={`text-grayMid ${
-                      isOpen ? "text-orange" : ""
-                    }`}
+                    className={`text-grayMid ${isOpen ? "text-orange" : ""}`}
                   />
                 </motion.div>
               </div>

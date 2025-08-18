@@ -17,7 +17,7 @@ const TimelineStep = ({
   tooltip,
 }) => {
   return (
-    <motion.div variants={fadeUpVariant} className="relative pl-14 py-10 ">
+    <motion.div variants={fadeUpVariant} className="relative pl-14 pt-6">
       {/* Connector line */}
       <motion.div
         initial={{ height: 0 }}
@@ -31,12 +31,12 @@ const TimelineStep = ({
         {index + 1}
       </div>
 
-      <h3 className="text-xl font-semibold text-white mb-2">{title}</h3>
+      <h3 className="text-xl font-semibold text-white">{title}</h3>
       <p className="text-gray-400 text-sm mb-6 leading-relaxed">
         {description}
       </p>
 
-      <div className="flex flex-col items-center sm:flex-row sm:items-center justify-between shadow-grayMid shadow-md p-4 gap-8 rounded-md">
+      <div className="flex flex-col items-center sm:flex-row sm:items-center justify-between shadow-grayMid shadow-md p-8 gap-8 rounded-xl bg-dark">
         {/* Start tag with tooltip */}
         <div className="px-4 py-2 bg-gray-300 text-black rounded-xl text-xs font-medium relative group w-fit">
           {startText}
@@ -49,7 +49,7 @@ const TimelineStep = ({
 
         {/* Center avatar with 2s spring transition */}
         <motion.div
-          whileInView={{ scale: 1.3, opacity: 1 }}
+          whileInView={{ scale: 1.2, opacity: 1 }}
           initial={{ scale: 0, opacity: 0 }}
           transition={{
             type: "spring",

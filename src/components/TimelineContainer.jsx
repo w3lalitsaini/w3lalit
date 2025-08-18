@@ -52,7 +52,7 @@ const Timeline = () => {
     <section className="w-full px-4 py-10">
       <motion.div
         ref={ref}
-        className="flex flex-col gap-10 relative"
+        className="flex flex-col gap-2 relative"
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
         variants={{
