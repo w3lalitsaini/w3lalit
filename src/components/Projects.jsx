@@ -22,15 +22,7 @@ const projects = [
     tags: ["React", "Tailwind", "EmailJS"],
     link: "https://shayam-cafe.vercel.app/",
   },
-  {
-    title: "Furniture House",
-    subtitle: "Furniture E-Commerce Web",
-    image: "/pro-img/Furnture.jpg",
-    description:
-      "An elegant and functional e-commerce platform for premium furniture shopping. Fully responsive, secure checkout and optimized for speed.",
-    tags: ["HTML", "CSS", "JavaScript"],
-    link: "https://furniture-web-rho-ten.vercel.app/",
-  },
+
   {
     title: "Rajasthan Tourism",
     subtitle: "Tourism Agency Website",
@@ -49,6 +41,15 @@ const projects = [
       "A professional resume builder web application that allows users to select templates, edit content in real-time, and download A4-formatted resumes as PDFs. Built with React, Tailwind CSS, Node.js, and html2pdf.js, it features live preview, form-based editing, template selection, and custom styling.",
     tags: ["React", "Tailwind", "Node.js", "html2pdf.js"],
     link: "https://devfolio-saas.vercel.app/",
+  },
+  {
+    title: "Furniture House",
+    subtitle: "Furniture E-Commerce Web",
+    image: "/pro-img/Furnture.jpg",
+    description:
+      "An elegant and functional e-commerce platform for premium furniture shopping. Fully responsive, secure checkout and optimized for speed.",
+    tags: ["HTML", "CSS", "JavaScript"],
+    link: "https://furniture-web-rho-ten.vercel.app/",
   },
   {
     title: "Univ Result",
