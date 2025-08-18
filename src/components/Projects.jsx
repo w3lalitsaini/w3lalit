@@ -41,6 +41,16 @@ const projects = [
     link: "https://rajasthan-tourism.vercel.app/",
   },
   {
+    id: "resume-builder-saas",
+    title: "Resume Builder",
+    subtitle: "Modern Resume Builder SAAS",
+    image: "/pro-img/resume-builder.jpg",
+    description:
+      "A professional resume builder web application that allows users to select templates, edit content in real-time, and download A4-formatted resumes as PDFs. Built with React, Tailwind CSS, Node.js, and html2pdf.js, it features live preview, form-based editing, template selection, and custom styling.",
+    tags: ["React", "Tailwind", "Node.js", "html2pdf.js"],
+    link: "https://devfolio-saas.vercel.app/",
+  },
+  {
     title: "Univ Result",
     subtitle: "Dynamic Blogging Web App",
     image: "/pro-img/3.jpg",
