@@ -11,9 +11,11 @@ import {
   FaUsers,
   FaAward,
   FaBriefcase,
+  FaLightbulb,
+  FaPalette,
 } from "react-icons/fa";
 import Button from "../components/Button";
-import SEO from "../components/SEO"; 
+import SEO from "../components/SEO";
 
 const About = ({
   addSEO = true,
@@ -30,68 +32,135 @@ const About = ({
       )}
 
       {/* Hero Section */}
-      <motion.section
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="pt-28 text-center px-6 max-w-5xl mx-auto text-white"
-      >
-        <h1 className="text-4xl md:text-5xl font-bold">
-          Web Developer <span className="text-orange">Lalit Saini</span>
-        </h1>
-        <p className="text-grayMid mt-4 text-base md:text-lg max-w-3xl mx-auto leading-relaxed">
-          I'm <strong>Lalit Saini</strong>, the founder of{" "}
-          <strong>W3Lalitsaini</strong>, a personal brand dedicated to delivering
-          premium full-stack web solutions. From startups to enterprises, I
-          create scalable, SEO-optimized, and user-focused digital products.
-        </p>
-      </motion.section>
-
-      {/* Profile & Bio */}
-      <section className="grid grid-cols-1 md:grid-cols-2 gap-10 px-6 max-w-6xl mx-auto mt-16 items-center text-white">
-        <motion.img
-          src="/avatar/32.jpg"
-          alt="Web Developer Lalit Saini - W3Lalitsaini"
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="rounded-lg shadow-lg w-full object-cover"
-        />
-        <motion.div
-          initial={{ opacity: 0, x: 40 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="text-3xl font-bold mb-4">
-            Hi, I'm <span className="text-orange">Lalit Saini</span>
-          </h2>
-          <p className="text-grayMid leading-relaxed mb-4">
-            As a self-taught <strong>web developer</strong>, I've built{" "}
-            <strong>W3Lalitsaini</strong> into a trusted brand for high-quality
-            websites, apps, and digital products. My stack includes React,
-            Next.js, Node.js, MongoDB, Tailwind CSS, and API integrations.
-          </p>
-          <p className="text-grayMid leading-relaxed">
-            I help businesses grow online with SEO-focused solutions that rank
-            locally and globally. My mission is to create long-lasting digital
-            experiences that elevate brands.
-          </p>
-        </motion.div>
+      <section className="relative pt-32 pb-20 bg-dark overflow-hidden">
+        <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-orange/10 blur-[120px] rounded-full"></div>
+        <div className="max-w-7xl mx-auto px-8 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center max-w-4xl mx-auto"
+          >
+            <h1 className="text-4xl md:text-7xl font-black text-white mb-8 tracking-tighter">
+              I Build Digital <span className="text-orange">Experiences</span>{" "}
+              That Sell.
+            </h1>
+            <p className="text-xl text-grayMid font-medium leading-relaxed">
+              Based in Sikar, Rajasthan, I'm a full-stack developer specializing
+              in creating high-end digital solutions for ambitious brands and
+              individuals worldwide.
+            </p>
+          </motion.div>
+        </div>
       </section>
 
-      {/* Personal Brand Mission */}
-      <section className="bg-dark/80 py-16 mt-20 px-6 text-white text-center">
-        <h2 className="text-3xl font-bold mb-6">
-          My Mission with <span className="text-orange">W3Lalitsaini</span>
-        </h2>
-        <p className="text-grayMid max-w-4xl mx-auto leading-relaxed">
-          W3Lalitsaini isn't just a portfolio, it's a vision. My goal is to
-          become a top-rated <strong>web developer in India</strong> and
-          worldwide by helping businesses achieve their digital goals with
-          cutting-edge technology, creative design, and SEO-driven strategies.
-        </p>
+      {/* Profile Section */}
+      <section className="py-20 bg-[#050505]">
+        <div className="max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="relative"
+          >
+            <div className="absolute -inset-4 bg-orange/20 blur-xl rounded-2xl rotate-3"></div>
+            <div className="relative aspect-square rounded-2xl border border-white/10 overflow-hidden bg-dark shadow-2xl">
+              <img
+                src="https://api.dicebear.com/7.x/avataaars/svg?seed=Lalit"
+                alt="Lalit Saini"
+                className="w-full h-full object-cover scale-110"
+              />
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="flex flex-col gap-6"
+          >
+            <h2 className="text-3xl font-bold text-white">
+              The Man Behind the Code
+            </h2>
+            <p className="text-grayMid text-lg leading-relaxed">
+              With over 4 years of experience in the digital space, I've
+              transitioned from a curious experimenter to a professional
+              architect of the web. My focus is on the intersection of{" "}
+              <span className="text-white font-bold">performance</span>,
+              <span className="text-white font-bold">design</span>, and{" "}
+              <span className="text-white font-bold">business results</span>.
+            </p>
+            <div className="grid grid-cols-2 gap-6 mt-4">
+              <div className="p-4 rounded-xl bg-white/5 border border-white/5">
+                <span className="text-orange text-2xl font-bold block mb-1">
+                  50+
+                </span>
+                <span className="text-grayMid text-sm font-medium">
+                  Projects Delivered
+                </span>
+              </div>
+              <div className="p-4 rounded-xl bg-white/5 border border-white/5">
+                <span className="text-orange text-2xl font-bold block mb-1">
+                  4+
+                </span>
+                <span className="text-grayMid text-sm font-medium">
+                  Years Experience
+                </span>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Values Section */}
+      <section className="py-20 bg-dark">
+        <div className="max-w-7xl mx-auto px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-white mb-4">
+              My Methodology
+            </h2>
+            <div className="h-1.5 w-20 bg-orange mx-auto rounded-full"></div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Strategy First",
+                desc: "I don't just write code. I analyze your business goals to ensure the technical choices drive real-world conversion.",
+                icon: <FaLightbulb className="text-orange" />,
+              },
+              {
+                title: "Premium Design",
+                desc: "Every pixel matters. I create modern, dark-themed aesthetics that command attention and build trust instantly.",
+                icon: <FaPalette className="text-orange" />,
+              },
+              {
+                title: "Scalable Code",
+                desc: "Using MERN & Next.js, I build foundations that grow with you, ensuring your site stays fast and secure.",
+                icon: <FaCode className="text-orange" />,
+              },
+            ].map((item, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="bg-white/5 border border-white/10 p-8 rounded-3xl hover:border-orange/50 transition-all group"
+              >
+                <div className="w-14 h-14 bg-orange/10 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform">
+                  {item.icon}
+                </div>
+                <h3 className="text-xl font-bold text-white mb-4">
+                  {item.title}
+                </h3>
+                <p className="text-grayMid leading-relaxed text-sm">
+                  {item.desc}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* Skills Section */}

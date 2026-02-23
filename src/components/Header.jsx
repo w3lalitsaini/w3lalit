@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   FaChevronDown,
@@ -9,13 +9,20 @@ import {
   FaUser,
 } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
-import { Helmet } from "@dr.pogodin/react-helmet"; // ✅ UPDATED
 
 const Header = () => {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [user, setUser] = useState(null);
   const location = useLocation();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const savedUser = localStorage.getItem("user");
+    if (savedUser) {
+      setUser(JSON.parse(savedUser));
+    }
+  }, [location]);
 
   const scrollToSection = (id) => {
     if (location.pathname === "/") {
@@ -36,37 +43,16 @@ const Header = () => {
     setDropdownOpen(false);
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    setUser(null);
+    navigate("/sign-in");
+    closeAll();
+  };
+
   return (
     <>
-      {/* SEO & Schema for Navbar */}
-      <Helmet>
-        <meta
-          name="author"
-          content="W3 Lalit - Web Developer from Sikar, Rajasthan"
-        />
-        <meta name="copyright" content="W3 Lalit - w3lalitsaini.com © 2025" />
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            name: "W3 Lalit",
-            url: "https://w3lalitsaini.com",
-            logo: "https://w3lalitsaini.com/logs/favicon.ico",
-            contactPoint: {
-              "@type": "ContactPoint",
-              telephone: "+91 9887374746",
-              contactType: "customer service",
-              areaServed: "IN",
-              availableLanguage: ["en", "hi"],
-            },
-            sameAs: [
-              "https://www.instagram.com/w3lalitsaini",
-              "https://www.linkedin.com/in/w3lalitsaini",
-            ],
-          })}
-        </script>
-      </Helmet>
-
       <header className="fixed top-5 left-1/2 transform -translate-x-1/2 backdrop-blur-[12px] rounded-full px-6 py-3 max-w-5xl w-[92%] md:w-[90%] lg:w-full z-50 border border-grayMid/70 bg-dark/70 shadow-lg text-white">
         <div className="flex items-center justify-between w-full">
           {/* Logo */}
@@ -77,41 +63,41 @@ const Header = () => {
           </div>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-6 lg:gap-8">
             <button
               onClick={() => scrollToSection("home")}
-              className="hover:text-orange duration-300"
+              className="hover:text-orange duration-300 transition-colors"
             >
               Home
             </button>
             <button
               onClick={() => scrollToSection("why-me")}
-              className="hover:text-orange duration-300"
+              className="hover:text-orange duration-300 transition-colors"
             >
               Why me?
             </button>
             <Link
               to="/work"
               onClick={closeAll}
-              className="hover:text-orange duration-300"
+              className="hover:text-orange duration-300 transition-colors"
             >
               Work
             </Link>
 
-            {/* Dropdown - open on hover */}
+            {/* Dropdown */}
             <div
               className="relative group"
               onMouseEnter={() => setDropdownOpen(true)}
               onMouseLeave={() => setDropdownOpen(false)}
             >
               <button
-                className="flex items-center gap-1 hover:text-orange duration-300"
+                className="flex items-center gap-1 hover:text-orange duration-300 transition-colors"
                 aria-haspopup="true"
                 aria-expanded={isDropdownOpen}
               >
                 Explore
                 <FaChevronDown
-                  className={`transition-transform ${
+                  className={`transition-transform duration-300 ${
                     isDropdownOpen ? "rotate-180" : ""
                   }`}
                 />
@@ -123,12 +109,12 @@ const Header = () => {
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
-                    transition={{ duration: 0.25 }}
-                    className="absolute mt-0 right-0 bg-dark border border-grayMid rounded-lg shadow-xl w-64 overflow-hidden"
+                    transition={{ duration: 0.2 }}
+                    className="absolute mt-0 right-0 bg-dark border border-grayMid/30 rounded-lg shadow-xl w-64 overflow-hidden backdrop-blur-md"
                   >
                     <Link
                       to="/service"
-                      className="flex items-start gap-3 px-4 py-3 hover:bg-slate-800"
+                      className="flex items-start gap-3 px-4 py-3 hover:bg-white/5 transition-colors"
                       onClick={closeAll}
                     >
                       <FaTools className="text-orange text-lg mt-1" />
@@ -142,7 +128,7 @@ const Header = () => {
 
                     <Link
                       to="/pricing"
-                      className="flex items-start gap-3 px-4 py-3 hover:bg-slate-800"
+                      className="flex items-start gap-3 px-4 py-3 hover:bg-white/5 transition-colors"
                       onClick={closeAll}
                     >
                       <FaTags className="text-orange text-lg mt-1" />
@@ -156,7 +142,7 @@ const Header = () => {
 
                     <Link
                       to="/about"
-                      className="flex items-start gap-3 px-4 py-3 hover:bg-slate-800"
+                      className="flex items-start gap-3 px-4 py-3 hover:bg-white/5 transition-colors"
                       onClick={closeAll}
                     >
                       <FaUser className="text-orange text-lg mt-1" />
@@ -175,15 +161,39 @@ const Header = () => {
             <Link
               to="/contact"
               onClick={closeAll}
-              className="hover:text-orange duration-300"
+              className="hover:text-orange duration-300 transition-colors"
             >
               Contact
             </Link>
+
+            {/* Auth Buttons */}
+            {user ? (
+              <div className="flex items-center gap-4 border-l border-grayMid/30 pl-6 ml-2">
+                <span className="text-sm font-medium text-grayMid hidden lg:inline">
+                  Hi,{" "}
+                  <span className="text-white">{user.name.split(" ")[0]}</span>
+                </span>
+                <button
+                  onClick={handleLogout}
+                  className="bg-orange/10 hover:bg-orange text-orange hover:text-white px-4 py-1.5 rounded-full text-sm font-semibold transition-all duration-300 border border-orange/50"
+                >
+                  Logout
+                </button>
+              </div>
+            ) : (
+              <Link
+                to="/sign-in"
+                onClick={closeAll}
+                className="bg-orange hover:bg-orange/80 text-white px-5 py-1.5 rounded-full text-sm font-semibold transition-all duration-300 shadow-lg shadow-orange/20"
+              >
+                Sign In
+              </Link>
+            )}
           </nav>
 
           {/* Mobile Hamburger */}
           <button
-            className="md:hidden text-2xl"
+            className="md:hidden text-2xl p-2 hover:bg-white/5 rounded-full transition-colors"
             onClick={() => setMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle mobile menu"
           >
@@ -199,55 +209,80 @@ const Header = () => {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
-              className="md:hidden absolute top-full mt-3 left-1/2 transform -translate-x-1/2 w-[92%] bg-dark border border-grayMid rounded-lg shadow-lg p-4 flex flex-col gap-8 items-center"
+              className="md:hidden absolute top-full mt-4 left-1/2 transform -translate-x-1/2 w-full bg-dark/95 backdrop-blur-xl border border-grayMid/30 rounded-2xl shadow-2xl p-6 flex flex-col gap-6 items-center overflow-hidden"
             >
               <button
-                onClick={() => scrollToSection("#home")}
-                className="hover:text-orange duration-300"
+                onClick={() => scrollToSection("home")}
+                className="text-lg font-medium hover:text-orange transition-colors"
               >
                 Home
               </button>
               <button
-                onClick={() => scrollToSection("#why-me")}
-                className="hover:text-orange duration-300"
+                onClick={() => scrollToSection("why-me")}
+                className="text-lg font-medium hover:text-orange transition-colors"
               >
                 Why me?
               </button>
               <Link
                 to="/service"
                 onClick={closeAll}
-                className="hover:text-orange duration-300"
+                className="text-lg font-medium hover:text-orange transition-colors"
               >
                 Services
               </Link>
               <Link
                 to="/pricing"
                 onClick={closeAll}
-                className="hover:text-orange duration-300"
+                className="text-lg font-medium hover:text-orange transition-colors"
               >
                 Pricing
               </Link>
               <Link
                 to="/about"
                 onClick={closeAll}
-                className="hover:text-orange duration-300"
+                className="text-lg font-medium hover:text-orange transition-colors"
               >
                 About Me
               </Link>
               <Link
                 to="/work"
                 onClick={closeAll}
-                className="hover:text-orange duration-300"
+                className="text-lg font-medium hover:text-orange transition-colors"
               >
                 Work
               </Link>
               <Link
                 to="/contact"
                 onClick={closeAll}
-                className="hover:text-orange duration-300"
+                className="text-lg font-medium hover:text-orange transition-colors"
               >
                 Contact
               </Link>
+
+              <div className="w-full border-t border-grayMid/20 pt-6 flex flex-col items-center gap-4">
+                {user ? (
+                  <>
+                    <p className="text-grayMid">
+                      Logged in as{" "}
+                      <span className="text-white">{user.name}</span>
+                    </p>
+                    <button
+                      onClick={handleLogout}
+                      className="w-full bg-dark border border-orange text-orange py-3 rounded-xl font-bold hover:bg-orange hover:text-white transition-all"
+                    >
+                      Logout
+                    </button>
+                  </>
+                ) : (
+                  <Link
+                    to="/sign-in"
+                    onClick={closeAll}
+                    className="w-full bg-orange text-white py-3 rounded-xl text-center font-bold shadow-lg shadow-orange/20"
+                  >
+                    Sign In / Sign Up
+                  </Link>
+                )}
+              </div>
             </motion.div>
           )}
         </AnimatePresence>

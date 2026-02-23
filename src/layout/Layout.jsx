@@ -9,7 +9,7 @@ const Layout = () => {
   return (
     <>
       <ScrollToTop />
-      <SEO/>
+      <SEO />
       <Header />
       <main>
         <Outlet />

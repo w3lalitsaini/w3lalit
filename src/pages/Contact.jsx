@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Button from "../components/Button";
 import SEO from "../components/SEO";
 import { motion } from "framer-motion";
@@ -12,6 +12,7 @@ import {
   FaLinkedinIn,
 } from "react-icons/fa";
 import emailjs from "@emailjs/browser";
+import axios from "axios";
 
 const Contact = ({
   addSEO = true,
@@ -28,28 +29,46 @@ const Contact = ({
     message: "",
   });
   const [status, setStatus] = useState({ type: "", message: "" });
+  const [loading, setLoading] = useState(false);
+  const form = useRef();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     setStatus({ type: "", message: "" });
 
-
-    emailjs
-      .send(
-        "service_h9dk23n", // Replace with your EmailJS Service ID
-        "template_j3ywnz9", // Replace with your EmailJS Template ID
+    try {
+      // Backend integration
+      const response = await axios.post(
+        "http://localhost:3000/contact/submit",
         formData,
-        "XlJ4bIw7Fe9TE_q4s" // Replace with your EmailJS Public Key
-      )
-      .then(
-        () => {
-          setStatus({ type: "success", message: "Message sent successfully!" });
-          setFormData({ name: "", email: "", phone: "", niche: "", message: "" });
-        },
-        () => {
-          setStatus({ type: "error", message: "Oops! Something went wrong. Please try again." });
-        }
       );
+
+      // EmailJS integration (keeping it as backup)
+      emailjs
+        .send(
+          "service_h9dk23n",
+          "template_j3ywnz9",
+          formData,
+          "XlJ4bIw7Fe9TE_q4s",
+        )
+        .then(
+          () => console.log("EmailJS Success"),
+          (error) => console.log("EmailJS Failed...", error.text),
+        );
+
+      setStatus({ type: "success", message: response.data.message });
+      setFormData({ name: "", email: "", phone: "", niche: "", message: "" });
+    } catch (error) {
+      setStatus({
+        type: "error",
+        message:
+          error.response?.data?.message ||
+          "Oops! Something went wrong. Please try again.",
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -63,20 +82,20 @@ const Contact = ({
               __html: JSON.stringify({
                 "@context": "https://schema.org",
                 "@type": "Person",
-                "name": "Lalit Saini",
-                "alternateName": "W3Lalitsaini",
-                "jobTitle": "Web Developer",
-                "url": "https://w3lalitsaini.com",
-                "image": "https://w3lalitsaini.com/pro-img/profile.jpg",
-                "email": "mailto:Sainilalit2751@email.com",
-                "telephone": "+91-9887374746",
-                "address": {
+                name: "Lalit Saini",
+                alternateName: "W3Lalitsaini",
+                jobTitle: "Web Developer",
+                url: "https://w3lalitsaini.com",
+                image: "https://w3lalitsaini.com/pro-img/profile.jpg",
+                email: "mailto:Sainilalit2751@email.com",
+                telephone: "+91-9887374746",
+                address: {
                   "@type": "PostalAddress",
-                  "addressLocality": "Sikar",
-                  "addressRegion": "Rajasthan",
-                  "addressCountry": "IN",
+                  addressLocality: "Sikar",
+                  addressRegion: "Rajasthan",
+                  addressCountry: "IN",
                 },
-                "sameAs": [
+                sameAs: [
                   "https://www.facebook.com/w3lalitsaini",
                   "https://www.instagram.com/w3lalitsaini",
                   "https://www.linkedin.com/in/w3lalitsaini",
@@ -186,6 +205,7 @@ const Contact = ({
 
         {/* Contact Form */}
         <form
+          ref={form}
           onSubmit={handleSubmit}
           className="space-y-4 bg-dark/60 p-6 rounded-lg border border-grayMid/30"
         >
@@ -204,7 +224,9 @@ const Contact = ({
             placeholder="Your Email"
             required
             value={formData.email}
-            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+            onChange={(e) =>
+              setFormData({ ...formData, email: e.target.value })
+            }
             className="w-full px-4 py-3 rounded-md bg-grayDark text-white border border-grayMid/30 focus:border-orange outline-none"
           />
           <input
@@ -212,7 +234,9 @@ const Contact = ({
             name="phone"
             placeholder="Your Phone"
             value={formData.phone}
-            onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+            onChange={(e) =>
+              setFormData({ ...formData, phone: e.target.value })
+            }
             className="w-full px-4 py-3 rounded-md bg-grayDark text-white border border-grayMid/30 focus:border-orange outline-none"
           />
           <input
@@ -221,7 +245,9 @@ const Contact = ({
             placeholder="Your Niche (Business/Project Type)"
             required
             value={formData.niche}
-            onChange={(e) => setFormData({ ...formData, niche: e.target.value })}
+            onChange={(e) =>
+              setFormData({ ...formData, niche: e.target.value })
+            }
             className="w-full px-4 py-3 rounded-md bg-grayDark text-white border border-grayMid/30 focus:border-orange outline-none"
           />
           <textarea
@@ -230,7 +256,9 @@ const Contact = ({
             rows={5}
             required
             value={formData.message}
-            onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+            onChange={(e) =>
+              setFormData({ ...formData, message: e.target.value })
+            }
             className="w-full px-4 py-3 rounded-md bg-grayDark text-white border border-grayMid/30 focus:border-orange outline-none"
           ></textarea>
 
@@ -245,9 +273,10 @@ const Contact = ({
           )}
 
           <Button
-            title="Send Message"
+            title={loading ? "Sending..." : "Send Message"}
             variant="solid"
             type="submit"
+            disabled={loading}
             className="w-full"
           />
         </form>
