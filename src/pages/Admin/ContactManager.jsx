@@ -88,7 +88,21 @@ const ContactManager = () => {
                 </div>
               </div>
 
-              <div className="space-y-2">
+              <div className="space-y-3">
+                <div className="flex flex-wrap gap-x-6 gap-y-2 text-xs text-grayMid">
+                  <p className="flex items-center gap-2">
+                    <span className="font-bold text-white/40 uppercase tracking-tighter">
+                      Phone:
+                    </span>
+                    {contact.phone || "N/A"}
+                  </p>
+                  <p className="flex items-center gap-2">
+                    <span className="font-bold text-white/40 uppercase tracking-tighter">
+                      Niche:
+                    </span>
+                    {contact.niche || "N/A"}
+                  </p>
+                </div>
                 <p className="text-sm font-bold text-orange/90">
                   {contact.subject}
                 </p>
