@@ -4,6 +4,34 @@ import { Link } from "react-router-dom";
 import { FaFacebook, FaInstagram, FaLinkedin, FaGithub } from "react-icons/fa";
 
 const Footer = () => {
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState({ type: "", message: "" });
+  const [loading, setLoading] = useState(false);
+
+  const handleSubscribe = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setStatus({ type: "", message: "" });
+
+    try {
+      const response = await axios.post(
+        "http://localhost:3000/newsletter/subscribe",
+        { email },
+      );
+      setStatus({ type: "success", message: response.data.message });
+      setEmail("");
+    } catch (error) {
+      setStatus({
+        type: "error",
+        message:
+          error.response?.data?.message ||
+          "Failed to subscribe. Please try again.",
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <footer className="bg-dots bg-dark text-grayLight pb-6 backdrop-blur-[1px]">
       <div className="border-t border-grayMid/30 text-center pb-12 text-sm text-grayMid"></div>
