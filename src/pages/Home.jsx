@@ -110,11 +110,11 @@ const Home = () => {
         </div>
 
         {/* Scrolling Tech Logos */}
-        <InfinityScrollBar />
         <h2 className="text-center font-bold font-headline text-2xl md:text-3xl py-10 bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent mt-8">
           Powerful stacks behind stunning projects
         </h2>
-        <InfinityScrollBar2 />
+
+        <InfinityScrollBar />
 
         {/* Features / Stats / Services */}
         <FeaturesSection />
