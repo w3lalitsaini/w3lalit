@@ -42,7 +42,7 @@ const FAQ = ({
   return (
     <section
       id="faq"
-      className="w-full px-4 md:px-6 py-16"
+      className="w-full px-4 md:px-6 py-20 bg-slate-950/20"
     >
       {/* SEO */}
       {addSEO && (
@@ -50,20 +50,20 @@ const FAQ = ({
       )}
 
       {/* Heading */}
-      <div className="text-center mb-12">
-        <h2 className="text-orange uppercase text-xs md:text-sm tracking-widest">
+      <div className="text-center mb-16">
+        <h2 className="text-cyan-400 font-bold uppercase text-xs md:text-sm tracking-widest">
           FAQs
         </h2>
-        <h3 className="text-2xl md:text-4xl font-bold text-white mt-2">
+        <h3 className="text-3xl md:text-5xl font-extrabold text-white mt-2">
           Frequently Asked Questions
         </h3>
-        <p className="text-grayMid mt-3 text-sm md:text-base max-w-2xl mx-auto">
+        <p className="text-slate-400 mt-4 text-sm md:text-base max-w-2xl mx-auto">
           Got questions? I’ve answered some of the most common ones below.
         </p>
       </div>
 
       {/* FAQ Items */}
-      <div className="max-w-5xl mx-auto space-y-4">
+      <div className="max-w-4xl mx-auto space-y-4">
         {faqs.map((faq, index) => {
           const isOpen = openIndex === index;
           const answerId = `faq-answer-${index}`;
@@ -71,7 +71,7 @@ const FAQ = ({
           return (
             <div
               key={index}
-              className="w-full bg-dark/60 rounded-lg border border-grayMid/40 p-5 md:p-6 cursor-pointer hover:border-orange transition-colors duration-300 backdrop-blur-[1px]"
+              className="w-full bg-slate-900/30 rounded-2xl border border-slate-800/80 p-5 md:p-6 cursor-pointer hover:border-cyan-500/40 hover:shadow-[0_0_20px_rgba(6,182,212,0.08)] transition-all duration-300 backdrop-blur-md"
               onClick={() => toggleFAQ(index)}
               role="button"
               aria-expanded={isOpen}
@@ -82,8 +82,8 @@ const FAQ = ({
               }
             >
               {/* Question */}
-              <div className="flex items-center justify-between">
-                <h4 className="text-white text-base md:text-lg font-medium">
+              <div className="flex items-center justify-between gap-4">
+                <h4 className="text-white text-base md:text-lg font-semibold group-hover:text-cyan-400 transition-colors">
                   {faq.question}
                 </h4>
                 <motion.div
@@ -91,7 +91,7 @@ const FAQ = ({
                   transition={{ duration: 0.3 }}
                 >
                   <FaChevronDown
-                    className={`text-grayMid ${isOpen ? "text-orange" : ""}`}
+                    className={`text-slate-400 ${isOpen ? "text-cyan-400" : ""}`}
                   />
                 </motion.div>
               </div>
@@ -107,7 +107,7 @@ const FAQ = ({
                     transition={{ duration: 0.3 }}
                     className="overflow-hidden"
                   >
-                    <p className="text-grayMid mt-3 text-sm md:text-base leading-relaxed">
+                    <p className="text-slate-400 mt-4 text-sm md:text-base leading-relaxed border-t border-slate-800/60 pt-4">
                       {faq.answer}
                     </p>
                   </motion.div>

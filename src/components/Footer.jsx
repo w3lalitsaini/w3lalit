@@ -33,16 +33,16 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-dots bg-dark text-grayLight pb-6 backdrop-blur-[1px]">
-      <div className="border-t border-grayMid/30 text-center pb-12 text-sm text-grayMid"></div>
+    <footer className="bg-dots bg-slate-950 text-slate-300 pb-6 border-t border-slate-900">
+      <div className="text-center pb-12 text-sm text-slate-500"></div>
 
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 px-8">
         {/* Brand & Intro */}
         <div>
           <h2 className="text-white text-2xl font-extrabold tracking-tight">
-            W3<span className="text-orange">Lalit</span>
+            W3<span className="bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent">Lalit</span>
           </h2>
-          <p className="mt-3 text-sm leading-relaxed max-w-xs text-grayMid">
+          <p className="mt-3 text-sm leading-relaxed max-w-xs text-slate-400">
             Helping individuals and businesses build standout websites, SaaS
             platforms, and stunning portfolios with modern UI/UX.
           </p>
@@ -51,7 +51,7 @@ const Footer = () => {
         {/* Quick Navigation */}
         <div>
           <h3 className="text-white text-lg font-semibold mb-3">Quick Links</h3>
-          <ul className="space-y-2 text-sm text-grayMid">
+          <ul className="space-y-2 text-sm text-slate-400">
             <li>
               <Link to="/" className="hover:text-white transition">
                 Home
@@ -78,7 +78,7 @@ const Footer = () => {
         {/* Resources */}
         <div>
           <h3 className="text-white text-lg font-semibold mb-3">Resources</h3>
-          <ul className="space-y-2 text-sm text-grayMid">
+          <ul className="space-y-2 text-sm text-slate-400">
             <li>
               <Link to="/about" className="hover:text-white transition">
                 About Me
@@ -113,7 +113,7 @@ const Footer = () => {
           <h3 className="text-white text-lg font-semibold mb-3">
             Connect with Me
           </h3>
-          <div className="flex space-x-4 text-xl text-grayMid mb-4">
+          <div className="flex space-x-4 text-xl text-slate-400 mb-4">
             <a
               href="https://facebook.com/w3lalitsaini"
               target="_blank"
@@ -151,10 +151,10 @@ const Footer = () => {
               <FaGithub />
             </a>
           </div>
-          <p className="text-sm text-white">
+          <p className="text-sm text-slate-400">
             Email:{" "}
             <a
-              href="mailto:Sainilalit2751@example.com"
+              href="mailto:Sainilalit2751@gmail.com"
               className="text-white hover:underline"
             >
               Sainilalit2751@gmail.com
@@ -165,10 +165,10 @@ const Footer = () => {
 
       {/* Newsletter Section */}
       <div className="max-w-3xl mx-auto mt-12 text-center px-6">
-        <h3 className="text-xl md:text-2xl font-semibold mb-3 text-orange">
+        <h3 className="text-xl md:text-2xl font-bold mb-3 bg-gradient-to-r from-indigo-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
           Join the Inner Circle
         </h3>
-        <p className="text-sm text-grayMid mb-5">
+        <p className="text-sm text-slate-400 mb-5">
           Get exclusive web design tips, SaaS tool updates, and my latest
           project insights delivered to your inbox.
         </p>
@@ -182,19 +182,19 @@ const Footer = () => {
             onChange={(e) => setEmail(e.target.value)}
             required
             placeholder="Your best email address"
-            className="w-full px-5 py-3 bg-white/5 border border-grayMid/20 rounded-xl text-white placeholder:text-grayMid/50 focus:border-orange outline-none transition-all"
+            className="w-full px-5 py-3 bg-slate-900 border border-slate-800 rounded-xl text-white placeholder:text-slate-500 focus:border-cyan-400 outline-none transition-all duration-300 focus:ring-1 focus:ring-cyan-400/30"
           />
           <button
             type="submit"
             disabled={loading}
-            className={`bg-orange px-8 py-3 rounded-xl font-bold text-white hover:bg-orange/80 transition shadow-lg shadow-orange/20 whitespace-nowrap ${loading ? "opacity-70 cursor-not-allowed" : ""}`}
+            className={`bg-gradient-to-r from-indigo-500 to-cyan-500 px-8 py-3 rounded-xl font-bold text-white hover:from-indigo-400 hover:to-cyan-400 transition shadow-[0_0_15px_rgba(99,102,241,0.25)] whitespace-nowrap duration-300 ${loading ? "opacity-70 cursor-not-allowed" : ""}`}
           >
             {loading ? "Joining..." : "Subscribe Now"}
           </button>
         </form>
         {status.message && (
           <p
-            className={`mt-3 text-xs font-medium ${status.type === "success" ? "text-green-500" : "text-red-500"}`}
+            className={`mt-3 text-xs font-semibold ${status.type === "success" ? "text-green-400" : "text-red-400"}`}
           >
             {status.message}
           </p>
@@ -202,7 +202,7 @@ const Footer = () => {
       </div>
 
       {/* Bottom */}
-      <div className="border-t border-grayMid/30 mt-10 pt-4 w-3/4 mx-auto text-center text-sm text-grayMid">
+      <div className="border-t border-slate-900 mt-10 pt-4 w-3/4 mx-auto text-center text-sm text-slate-500">
         © {new Date().getFullYear()} W3 Lalit — All rights reserved.
       </div>
     </footer>

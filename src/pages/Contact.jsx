@@ -72,7 +72,7 @@ const Contact = ({
   };
 
   return (
-    <main className="bg-dark min-h-screen pt-28">
+    <main className="bg-dark bg-dots min-h-screen pt-36">
       {/* SEO with structured data */}
       {addSEO && (
         <SEO title={title} description={description} url={url} image={image}>
@@ -108,15 +108,15 @@ const Contact = ({
 
       {/* Heading */}
       <motion.section
-        className="text-center px-6 max-w-4xl mx-auto mb-12"
+        className="text-center px-6 max-w-4xl mx-auto mb-16"
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        <h1 className="text-4xl md:text-5xl font-bold text-white">
-          Get in <span className="text-orange">Touch</span>
+        <h1 className="text-4xl md:text-6xl font-extrabold text-white">
+          Get in <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">Touch</span>
         </h1>
-        <p className="text-grayMid mt-4 text-base md:text-lg leading-relaxed">
+        <p className="text-slate-400 mt-4 text-base md:text-lg leading-relaxed">
           Have a project in mind or just want to connect? Contact{" "}
           <strong>Web Developer Lalit Saini</strong> at{" "}
           <strong>W3Lalitsaini</strong> using the form below or through email,
@@ -129,32 +129,32 @@ const Contact = ({
         {/* Contact Info */}
         <div className="space-y-8 text-white">
           <div>
-            <h2 className="text-2xl font-semibold mb-4">Contact Details</h2>
-            <div className="space-y-3 text-grayMid">
+            <h2 className="text-2xl font-bold mb-4">Contact Details</h2>
+            <div className="space-y-4 text-slate-400">
               <p className="flex items-center gap-3">
-                <FaEnvelope className="text-orange" />
+                <FaEnvelope className="text-cyan-400" />
                 <a
-                  href="mailto:Sainilalit2751@email.com"
-                  className="hover:text-orange transition"
+                  href="mailto:Sainilalit2751@gmail.com"
+                  className="hover:text-cyan-400 transition-colors"
                 >
-                  Sainilalit2751@email.com
+                  Sainilalit2751@gmail.com
                 </a>
               </p>
               <p className="flex items-center gap-3">
-                <FaPhoneAlt className="text-orange" />
+                <FaPhoneAlt className="text-cyan-400" />
                 <a
                   href="tel:+91 9887374746"
-                  className="hover:text-orange transition"
+                  className="hover:text-cyan-400 transition-colors"
                 >
                   +91 9887374746
                 </a>
               </p>
               <p className="flex items-center gap-3">
-                <FaMapMarkerAlt className="text-orange" />
+                <FaMapMarkerAlt className="text-cyan-400" />
                 Sikar, Rajasthan, India
               </p>
               <p className="flex items-center gap-3">
-                <FaClock className="text-orange" />
+                <FaClock className="text-cyan-400" />
                 Mon - Sat: 9:00 AM - 7:00 PM
               </p>
             </div>
@@ -162,26 +162,26 @@ const Contact = ({
 
           {/* Social links */}
           <div>
-            <h2 className="text-2xl font-semibold mb-4">Follow Me</h2>
+            <h2 className="text-2xl font-bold mb-4">Follow Me</h2>
             <div className="flex items-center gap-4">
               <a
                 href="https://www.facebook.com/w3lalitsaini"
                 aria-label="Facebook - Lalit Saini"
-                className="w-10 h-10 rounded-full bg-grayDark flex items-center justify-center text-grayMid hover:text-orange hover:bg-grayMid/20 transition"
+                className="w-10 h-10 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:border-cyan-500/50 transition duration-300"
               >
                 <FaFacebookF />
               </a>
               <a
                 href="https://www.instagram.com/w3lalitsaini"
                 aria-label="Instagram - Lalit Saini"
-                className="w-10 h-10 rounded-full bg-grayDark flex items-center justify-center text-grayMid hover:text-orange hover:bg-grayMid/20 transition"
+                className="w-10 h-10 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:border-cyan-500/50 transition duration-300"
               >
                 <FaInstagram />
               </a>
               <a
                 href="https://www.linkedin.com/in/w3lalitsaini"
                 aria-label="LinkedIn - Lalit Saini"
-                className="w-10 h-10 rounded-full bg-grayDark flex items-center justify-center text-grayMid hover:text-orange hover:bg-grayMid/20 transition"
+                className="w-10 h-10 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:border-cyan-500/50 transition duration-300"
               >
                 <FaLinkedinIn />
               </a>
@@ -189,7 +189,7 @@ const Contact = ({
           </div>
 
           {/* Google Map */}
-          <div className="rounded-lg overflow-hidden border border-grayMid/30">
+          <div className="rounded-3xl overflow-hidden border border-slate-800/80 shadow-lg">
             <iframe
               title="Lalit Saini Location"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d43677.952703336!2d75.10160638146779!3d27.609537676069227!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396ca4b82334472b%3A0x7f485cce3a6bf355!2sSikar%2C%20Rajasthan!5e1!3m2!1sen!2sin!4v1754286197645!5m2!1sen!2sin"
@@ -207,7 +207,7 @@ const Contact = ({
         <form
           ref={form}
           onSubmit={handleSubmit}
-          className="space-y-4 bg-dark/60 p-6 rounded-lg border border-grayMid/30"
+          className="space-y-4 bg-slate-950/40 p-8 rounded-3xl border border-slate-800/80 backdrop-blur-md shadow-xl"
         >
           <input
             type="text"
@@ -216,7 +216,7 @@ const Contact = ({
             required
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-            className="w-full px-4 py-3 rounded-md bg-grayDark text-white border border-grayMid/30 focus:border-orange outline-none"
+            className="w-full px-4 py-3.5 rounded-xl bg-slate-900 text-white border border-slate-800/80 focus:border-cyan-400 outline-none transition duration-300 focus:ring-1 focus:ring-cyan-400/30"
           />
           <input
             type="email"
@@ -227,7 +227,7 @@ const Contact = ({
             onChange={(e) =>
               setFormData({ ...formData, email: e.target.value })
             }
-            className="w-full px-4 py-3 rounded-md bg-grayDark text-white border border-grayMid/30 focus:border-orange outline-none"
+            className="w-full px-4 py-3.5 rounded-xl bg-slate-900 text-white border border-slate-800/80 focus:border-cyan-400 outline-none transition duration-300 focus:ring-1 focus:ring-cyan-400/30"
           />
           <input
             type="tel"
@@ -237,7 +237,7 @@ const Contact = ({
             onChange={(e) =>
               setFormData({ ...formData, phone: e.target.value })
             }
-            className="w-full px-4 py-3 rounded-md bg-grayDark text-white border border-grayMid/30 focus:border-orange outline-none"
+            className="w-full px-4 py-3.5 rounded-xl bg-slate-900 text-white border border-slate-800/80 focus:border-cyan-400 outline-none transition duration-300 focus:ring-1 focus:ring-cyan-400/30"
           />
           <input
             type="text"
@@ -248,7 +248,7 @@ const Contact = ({
             onChange={(e) =>
               setFormData({ ...formData, niche: e.target.value })
             }
-            className="w-full px-4 py-3 rounded-md bg-grayDark text-white border border-grayMid/30 focus:border-orange outline-none"
+            className="w-full px-4 py-3.5 rounded-xl bg-slate-900 text-white border border-slate-800/80 focus:border-cyan-400 outline-none transition duration-300 focus:ring-1 focus:ring-cyan-400/30"
           />
           <textarea
             name="message"
@@ -259,13 +259,13 @@ const Contact = ({
             onChange={(e) =>
               setFormData({ ...formData, message: e.target.value })
             }
-            className="w-full px-4 py-3 rounded-md bg-grayDark text-white border border-grayMid/30 focus:border-orange outline-none"
+            className="w-full px-4 py-3.5 rounded-xl bg-slate-900 text-white border border-slate-800/80 focus:border-cyan-400 outline-none transition duration-300 focus:ring-1 focus:ring-cyan-400/30"
           ></textarea>
 
           {status.message && (
             <p
-              className={`text-sm ${
-                status.type === "success" ? "text-green-500" : "text-red-500"
+              className={`text-sm font-semibold ${
+                status.type === "success" ? "text-green-400" : "text-red-400"
               }`}
             >
               {status.message}
@@ -277,27 +277,31 @@ const Contact = ({
             variant="solid"
             type="submit"
             disabled={loading}
-            className="w-full"
+            className="w-full font-bold mt-4"
           />
         </form>
       </section>
 
       {/* CTA */}
       <motion.section
-        className="text-center px-6 pb-16 text-white"
+        className="text-center px-6 pb-20 text-white"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <h2 className="text-2xl md:text-3xl font-bold">
-          Prefer a direct conversation?
-        </h2>
-        <p className="text-grayMid mt-3 text-sm md:text-base">
-          Call me on <strong>+91 9887374746</strong> or email{" "}
-          <strong>Sainilalit2751@email.com</strong> and I’ll get back within 24
-          hours.
-        </p>
+        <div className="bg-slate-950/40 border border-slate-800/80 rounded-3xl p-8 md:p-12 text-center flex flex-col items-center shadow-2xl relative overflow-hidden backdrop-blur-md max-w-4xl mx-auto">
+          <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/5 blur-[80px] rounded-full pointer-events-none"></div>
+          <div className="absolute bottom-0 left-0 w-32 h-32 bg-indigo-500/5 blur-[80px] rounded-full pointer-events-none"></div>
+          <h2 className="text-2xl md:text-3xl font-extrabold relative z-10">
+            Prefer a direct conversation?
+          </h2>
+          <p className="text-slate-400 mt-4 text-sm md:text-base leading-relaxed relative z-10 max-w-2xl">
+            Call me on <strong className="text-white">+91 9887374746</strong> or email{" "}
+            <strong className="text-white">Sainilalit2751@gmail.com</strong> and I’ll get back within 24
+            hours.
+          </p>
+        </div>
       </motion.section>
     </main>
   );

@@ -83,43 +83,43 @@ const FeaturesSection = ({
       />
       {/* Top Headings */}
       <div className="text-center md:text-left">
-        <p className="text-base md:text-lg text-orange font-medium mb-2 font-headline">
+        <p className="text-base md:text-lg text-cyan-400 font-semibold mb-2 font-headline uppercase tracking-wider">
           Why Work With Me?
         </p>
-        <h2 className="text-3xl md:text-4xl font-bold text-white leading-tight">
+        <h2 className="text-3xl md:text-5xl font-extrabold text-white leading-tight">
           Exceptional Web Experiences <br />
-          <span className="text-gray-300">
+          <span className="bg-gradient-to-r from-indigo-300 to-cyan-300 bg-clip-text text-transparent">
             Designed for Growth & Conversions
           </span>
         </h2>
-        <p className="text-grayMid mt-3 max-w-3xl text-sm md:text-base">
+        <p className="text-slate-400 mt-4 max-w-3xl text-sm md:text-base leading-relaxed">
           {description}
         </p>
       </div>
       {/* Feature Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mt-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 mt-12">
         {features.map((feature, i) => (
           <div
             key={i}
-            className="flex flex-col justify-between backdrop-blur-[2px] p-6 rounded-lg bg-Dark transition-all duration-300 shadow-md shadow-grayMid"
+            className="flex flex-col justify-between backdrop-blur-md p-6 sm:p-8 rounded-2xl bg-slate-950/40 border border-slate-800/80 hover:border-cyan-500/40 hover:shadow-[0_0_30px_rgba(6,182,212,0.12)] transition-all duration-500 shadow-xl shadow-slate-950/20"
           >
-            <h3 className="text-xl md:text-2xl font-semibold text-white mb-3">
+            <h3 className="text-xl md:text-2xl font-bold text-white mb-3">
               {feature.title}
             </h3>
-            <p className="text-grayMid text-sm md:text-base leading-relaxed mb-4">
+            <p className="text-slate-400 text-sm md:text-base leading-relaxed mb-6">
               {feature.desc}
             </p>
 
             {/* Avatars */}
             {feature.type === "avatars" && (
-              <div className="flex items-center gap-3 mt-auto">
+              <div className="flex items-center gap-3 mt-auto pt-4 border-t border-slate-900">
                 <div className="flex -space-x-2">
                   {avatars.map((src, idx) => (
                     <img
                       key={idx}
                       src={src}
                       alt="Happy Client"
-                      className="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-dark object-cover"
+                      className="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-slate-950 object-cover"
                       loading="lazy"
                     />
                   ))}
@@ -127,7 +127,7 @@ const FeaturesSection = ({
                 <NavLink to="/contact" className="ml-auto">
                   <Button
                     title="Get in Touch"
-                    className="text-xs md:text-sm bg-gradient-to-r from-orange to-dark text-white hover:shadow-[0_0_15px_rgba(255,107,53,0.7)] transition-all"
+                    className="text-xs md:text-sm font-semibold py-2 px-4 shadow-[0_0_15px_rgba(99,102,241,0.2)]"
                     variant="solid"
                     aria-label="Navigate to Contact page"
                   />

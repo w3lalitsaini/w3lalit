@@ -135,8 +135,8 @@ const Projects = ({
         {visibleProjects.map((project, i) => (
           <div
             key={i}
-            className="group bg-dark rounded-xl overflow-hidden border border-grayMid
-            hover:scale-[1.02] transition-all duration-300 cursor-pointer"
+            className="group bg-slate-950/50 rounded-2xl overflow-hidden border border-slate-800/80
+            hover:border-cyan-500/40 hover:shadow-[0_0_30px_rgba(6,182,212,0.15)] hover:scale-[1.01] transition-all duration-500 cursor-pointer flex flex-col h-full"
             onClick={() => setSelectedProject(project)}
             role="button"
             tabIndex={0}
@@ -144,31 +144,31 @@ const Projects = ({
             onKeyDown={(e) => e.key === "Enter" && setSelectedProject(project)}
           >
             {/* Image */}
-            <div className="relative overflow-hidden">
+            <div className="relative overflow-hidden aspect-video">
               <img
                 src={project.image}
                 alt={project.title}
-                className="w-full h-56 md:h-64 object-cover transition-transform duration-500"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-dark/80 via-dark/30 to-transparent opacity-0 group-hover:opacity-100 transition duration-300"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300"></div>
             </div>
 
             {/* Content */}
-            <div className="p-5">
-              <h4 className="text-base md:text-lg font-semibold text-white">
+            <div className="p-6 flex flex-col flex-1">
+              <h4 className="text-lg md:text-xl font-bold text-white group-hover:text-cyan-400 transition-colors duration-300">
                 {project.title}
               </h4>
-              <p className="text-grayMid text-xs md:text-sm">
+              <p className="text-slate-400 text-sm mt-1">
                 {project.subtitle}
               </p>
 
               {/* Tags */}
-              <div className="flex flex-wrap gap-2 mt-3">
+              <div className="flex flex-wrap gap-2 mt-4">
                 {project.tags.map((tag, idx) => (
                   <span
                     key={idx}
-                    className="text-xs px-2 py-1 bg-grayDark text-grayLight rounded-full"
+                    className="text-xs px-2.5 py-1 bg-slate-900/60 text-cyan-400 border border-cyan-500/20 rounded-full font-medium"
                   >
                     {tag}
                   </span>
@@ -181,24 +181,29 @@ const Projects = ({
 
       {/* View More Button */}
       {!showAll && projects.length > 4 && (
-        <div className="text-center mt-8">
+        <div className="text-center mt-12">
           <button
             onClick={() => setShowAll(true)}
-            className="px-6 py-3 bg-gradient-to-r from-orange to-dark text-white rounded-md shadow-md hover:shadow-lg transition-all duration-300"
+            className="px-8 py-3.5 bg-gradient-to-r from-indigo-500 to-cyan-500 hover:from-indigo-400 hover:to-cyan-400 text-white rounded-full font-semibold shadow-[0_0_15px_rgba(99,102,241,0.25)] hover:shadow-[0_0_25px_rgba(99,102,241,0.45)] transition-all duration-300 transform hover:-translate-y-0.5"
           >
-            View More
+            View More Projects
           </button>
         </div>
       )}
 
       {/* CTA */}
-      <div className="text-center mt-16">
-        <h3 className="text-lg md:text-2xl text-white font-semibold mb-4">
-          Let's Build Something Amazing Together.
+      <div className="text-center mt-20 p-8 md:p-12 rounded-3xl bg-slate-950/40 border border-slate-800/80 backdrop-blur-md relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-48 h-48 bg-cyan-500/5 blur-[100px] rounded-full"></div>
+        <div className="absolute bottom-0 left-0 w-48 h-48 bg-indigo-500/5 blur-[100px] rounded-full"></div>
+        <h3 className="text-xl md:text-3xl text-white font-bold mb-4 relative z-10">
+          Let's Build Something Amazing Together
         </h3>
+        <p className="text-slate-400 text-sm md:text-base max-w-xl mx-auto mb-8 relative z-10">
+          Have an idea or a project in mind? Let's turn it into a high-performance digital reality.
+        </p>
         <NavLink
           to="/contact"
-          className="inline-block px-8 py-3 bg-gradient-to-r from-orange to-dark rounded-md shadow-lg text-white hover:shadow-[0_0_20px_rgba(255,107,53,0.8)] transition-all duration-300"
+          className="inline-block px-8 py-3.5 bg-gradient-to-r from-indigo-500 to-cyan-500 rounded-full font-semibold text-white hover:from-indigo-400 hover:to-cyan-400 shadow-[0_0_15px_rgba(99,102,241,0.3)] hover:shadow-[0_0_25px_rgba(99,102,241,0.55)] transition-all duration-300 transform hover:-translate-y-0.5 relative z-10"
         >
           Start a Project
         </NavLink>
@@ -207,15 +212,15 @@ const Projects = ({
       {/* Modal */}
       {selectedProject && (
         <div
-          className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4"
+          className="fixed inset-0 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center z-50 p-4"
           onClick={() => setSelectedProject(null)}
         >
           <div
-            className="bg-dark p-6 rounded-lg max-w-lg w-full relative"
+            className="bg-slate-950 border border-slate-800/80 p-6 md:p-8 rounded-3xl max-w-lg w-full relative shadow-[0_0_50px_rgba(99,102,241,0.25)]"
             onClick={(e) => e.stopPropagation()}
           >
             <button
-              className="absolute top-3 right-3 text-white text-lg"
+              className="absolute top-4 right-4 text-slate-400 hover:text-white text-xl bg-slate-900/60 p-1.5 rounded-full border border-slate-800"
               onClick={() => setSelectedProject(null)}
               aria-label="Close project details"
             >
@@ -224,20 +229,20 @@ const Projects = ({
             <img
               src={selectedProject.image}
               alt={selectedProject.title}
-              className="w-full rounded-lg mb-6"
+              className="w-full rounded-2xl mb-6 aspect-video object-cover"
               loading="lazy"
             />
-            <h4 className="text-white text-xl font-semibold mb-2">
+            <h4 className="text-white text-2xl font-bold mb-2">
               {selectedProject.title}
             </h4>
-            <p className="text-grayMid mb-4 text-sm md:text-base">
+            <p className="text-slate-400 mb-6 text-sm md:text-base leading-relaxed">
               {selectedProject.description}
             </p>
-            <div className="flex flex-wrap gap-2 mb-4">
+            <div className="flex flex-wrap gap-2 mb-6">
               {selectedProject.tags.map((tag, idx) => (
                 <span
                   key={idx}
-                  className="text-xs px-2 py-1 bg-grayDark text-grayLight rounded-full"
+                  className="text-xs px-2.5 py-1 bg-slate-900/60 text-cyan-400 border border-cyan-500/20 rounded-full font-medium"
                 >
                   {tag}
                 </span>
@@ -247,9 +252,9 @@ const Projects = ({
               href={selectedProject.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="block w-full text-center bg-orange text-white py-2 rounded-md hover:bg-orange/90 transition"
+              className="block w-full text-center bg-gradient-to-r from-indigo-500 to-cyan-500 hover:from-indigo-400 hover:to-cyan-400 text-white font-semibold py-3 rounded-xl shadow-[0_0_15px_rgba(99,102,241,0.2)] transition duration-300"
             >
-              Visit Project
+              Visit Project Website
             </a>
           </div>
         </div>

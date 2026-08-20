@@ -37,32 +37,32 @@ const testimonials = [
 const TestimonialScroll = () => {
     return (
         <>
-        <div className="text-center mt-16">
-            <h4 className="text-orange text-lg">Testimonial</h4>
-            <p className="text-grayMid text-2xl">What our client say</p>
+        <div className="text-center mt-20 mb-8">
+            <h4 className="text-cyan-400 font-bold uppercase text-xs md:text-sm tracking-widest">Testimonials</h4>
+            <p className="text-3xl md:text-5xl font-extrabold text-white mt-2">What Our Clients Say</p>
         </div>
-        <div className="overflow-hidden relative w-full max-w-6xl mx-auto px-4 py-10 mb-20">
+        <div className="overflow-hidden relative w-full max-w-7xl mx-auto px-4 py-10 mb-20">
             {/* Blur Gradients on sides */}
-            <div className="pointer-events-none absolute top-0 left-0 h-full w-32 bg-gradient-to-r from-dark via-dark/80 to-transparent z-20"></div>
-            <div className="pointer-events-none absolute top-0 right-0 h-full w-32 bg-gradient-to-l from-dark via-dark/80 to-transparent z-20"></div>
+            <div className="pointer-events-none absolute top-0 left-0 h-full w-40 bg-gradient-to-r from-slate-950 via-slate-950/70 to-transparent z-20"></div>
+            <div className="pointer-events-none absolute top-0 right-0 h-full w-40 bg-gradient-to-l from-slate-950 via-slate-950/70 to-transparent z-20"></div>
 
             {/* Scrolling Row */}
             <div className="flex animate-scroll whitespace-nowrap">
                 {testimonials.concat(testimonials).map((t, i) => (
                     <div
                         key={i}
-                        className="w-80 h-72 ml-12 rounded-lg flex flex-col justify-between p-6 shadow-sm shadow-grayMid backdrop-blur-[1px]"
+                        className="w-96 min-h-[250px] mx-6 rounded-2xl flex flex-col justify-between p-8 border border-slate-800 bg-slate-950/40 backdrop-blur-md shadow-xl hover:border-cyan-500/30 transition-all duration-300"
                     >
-                        <p className="text-grayLight text-sm leading-relaxed whitespace-normal">{t.text}</p>
-                        <div className="flex items-center gap-4 mb-4">
+                        <p className="text-slate-300 text-sm leading-relaxed whitespace-normal italic">"{t.text}"</p>
+                        <div className="flex items-center gap-4 mt-6 pt-4 border-t border-slate-900">
                             <img
                                 src={t.avatar}
                                 alt={t.name}
-                                className="w-12 h-12 rounded-full border-2 border-orange"
+                                className="w-12 h-12 rounded-full border-2 border-indigo-500/30 object-cover shadow-md"
                             />
                             <div>
-                                <h4 className="text-white font-semibold">{t.name}</h4>
-                                <p className="text-grayMid text-sm">{t.role}</p>
+                                <h4 className="text-white font-bold text-sm">{t.name}</h4>
+                                <p className="text-slate-400 text-xs mt-0.5">{t.role}</p>
                             </div>
                         </div>
                     </div>

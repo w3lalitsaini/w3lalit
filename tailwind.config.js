@@ -8,6 +8,9 @@ export default {
     extend: {
       boxShadow: {
         '3xl': '0 10px 60px -5px rgba(88, 30, 130, 1)',
+        'neon-indigo': '0 0 20px rgba(99, 102, 241, 0.3)',
+        'neon-cyan': '0 0 20px rgba(6, 182, 212, 0.3)',
+        'glass': '0 8px 32px 0 rgba(3, 7, 18, 0.37)',
       },
       colors: {
         dark: "var(--dark)",

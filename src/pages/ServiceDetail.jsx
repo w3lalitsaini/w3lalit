@@ -76,11 +76,11 @@ const ServiceDetail = ({
 
   if (!service) {
     return (
-      <div className="text-center mt-20 text-white">
-        <p className="text-lg">Service not found.</p>
+      <div className="text-center mt-36 text-white min-h-[50vh] flex flex-col items-center justify-center">
+        <p className="text-xl font-semibold mb-4">Service not found.</p>
         <Link
           to="/service"
-          className="text-orange underline hover:text-orange/80 transition"
+          className="text-cyan-400 underline hover:text-cyan-300 transition"
         >
           Back to Services
         </Link>
@@ -92,7 +92,7 @@ const ServiceDetail = ({
     <motion.main
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="w-full px-6 pt-28 pb-16 bg-dark bg-dots min-h-screen"
+      className="w-full px-6 pt-36 pb-20 bg-dark bg-dots min-h-screen"
     >
       {/* SEO */}
       {addSEO && (
@@ -110,16 +110,16 @@ const ServiceDetail = ({
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.4 }}
         aria-label="Breadcrumb"
-        className="text-grayMid text-sm mb-6"
+        className="text-slate-400 text-sm mb-8 max-w-4xl mx-auto"
       >
-        <Link to="/" className="hover:text-orange">
+        <Link to="/" className="hover:text-cyan-400 transition-colors">
           Home
         </Link>{" "}
         /{" "}
-        <Link to="/service" className="hover:text-orange">
+        <Link to="/service" className="hover:text-cyan-400 transition-colors">
           Services
         </Link>{" "}
-        / <span className="text-orange">{service.title}</span>
+        / <span className="text-cyan-400 font-semibold">{service.title}</span>
       </motion.nav>
 
       {/* Title and Description */}
@@ -127,64 +127,69 @@ const ServiceDetail = ({
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="text-center mb-10"
+        className="text-center mb-12"
       >
-        <h1 className="text-3xl md:text-4xl font-bold text-white">
+        <h1 className="text-3xl md:text-5xl font-extrabold text-white">
           {service.title}
         </h1>
-        <p className="text-grayMid mt-3 max-w-2xl mx-auto leading-relaxed text-base md:text-lg">
+        <p className="text-slate-400 mt-4 max-w-2xl mx-auto leading-relaxed text-base md:text-lg">
           {service.description}
         </p>
       </motion.header>
 
       {/* Image */}
-      <motion.img
-        src={service.image}
-        alt={service.title}
-        initial={{ scale: 0.95, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-        className="w-full rounded-lg shadow-xl mb-10 border border-grayMid/20 max-h-[400px] object-cover"
-      />
+      <div className="max-w-4xl mx-auto mb-16">
+        <motion.img
+          src={service.image}
+          alt={service.title}
+          initial={{ scale: 0.98, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="w-full rounded-3xl shadow-2xl border border-slate-800/80 max-h-[450px] object-cover"
+        />
+      </div>
 
       {/* Features */}
-      <motion.ul
-        initial="hidden"
-        animate="visible"
-        variants={{
-          hidden: { opacity: 0 },
-          visible: {
-            opacity: 1,
-            transition: { staggerChildren: 0.2 },
-          },
-        }}
-        className="space-y-4 text-grayMid text-base md:text-lg max-w-3xl mx-auto"
-      >
-        {service.features.map((feature, i) => (
-          <motion.li
-            key={i}
-            variants={{
-              hidden: { x: -20, opacity: 0 },
-              visible: { x: 0, opacity: 1 },
-            }}
-            className="flex items-center gap-3"
-          >
-            <span className="text-orange text-xl">✔</span>
-            <span>{feature}</span>
-          </motion.li>
-        ))}
-      </motion.ul>
+      <div className="max-w-3xl mx-auto bg-slate-950/40 border border-slate-800/80 p-8 md:p-10 rounded-3xl backdrop-blur-md shadow-xl">
+        <h3 className="text-xl font-bold text-white mb-6 border-b border-slate-900 pb-4">Key Features Included:</h3>
+        <motion.ul
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: { staggerChildren: 0.15 },
+            },
+          }}
+          className="space-y-4 text-slate-300 text-sm md:text-base"
+        >
+          {service.features.map((feature, i) => (
+            <motion.li
+              key={i}
+              variants={{
+                hidden: { x: -15, opacity: 0 },
+                visible: { x: 0, opacity: 1 },
+              }}
+              className="flex items-start gap-3"
+            >
+              <span className="text-cyan-400 text-lg font-bold mt-0.5">✓</span>
+              <span className="leading-relaxed">{feature}</span>
+            </motion.li>
+          ))}
+        </motion.ul>
+      </div>
 
       {/* CTA */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4 }}
-        className="text-center mt-12"
+        className="text-center mt-16"
       >
         <Link
           to="/contact"
-          className="inline-block px-8 py-3 bg-orange text-white rounded-lg hover:bg-orange/80 transition text-base md:text-lg font-medium"
+          className="inline-block px-10 py-4 bg-gradient-to-r from-indigo-500 to-cyan-500 rounded-full font-bold text-white hover:from-indigo-400 hover:to-cyan-400 shadow-[0_0_20px_rgba(99,102,241,0.3)] hover:shadow-[0_0_30px_rgba(99,102,241,0.55)] transition-all duration-300 transform hover:-translate-y-0.5"
         >
           Start a Project
         </Link>

@@ -41,11 +41,10 @@ const About = ({
             viewport={{ once: true }}
             className="text-center max-w-4xl mx-auto"
           >
-            <h1 className="text-4xl md:text-7xl font-black text-white mb-8 tracking-tighter">
-              I Build Digital <span className="text-orange">Experiences</span>{" "}
-              That Sell.
+            <h1 className="text-4xl md:text-7xl font-extrabold text-white mb-8 tracking-tight">
+              I Build Digital <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">Experiences</span> That Sell.
             </h1>
-            <p className="text-xl text-grayMid font-medium leading-relaxed">
+            <p className="text-xl text-slate-400 font-medium leading-relaxed">
               Based in Sikar, Rajasthan, I'm a full-stack developer specializing
               in creating high-end digital solutions for ambitious brands and
               individuals worldwide.
@@ -55,7 +54,8 @@ const About = ({
       </section>
 
       {/* Profile Section */}
-      <section className="py-20 bg-[#050505]">
+      <section className="py-20 bg-slate-950/40 relative">
+        <div className="absolute top-1/2 left-1/4 w-[300px] h-[300px] bg-indigo-500/5 blur-[100px] rounded-full pointer-events-none"></div>
         <div className="max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -63,8 +63,8 @@ const About = ({
             viewport={{ once: true }}
             className="relative"
           >
-            <div className="absolute -inset-4 bg-orange/20 blur-xl rounded-2xl rotate-3"></div>
-            <div className="relative aspect-square rounded-2xl border border-white/10 overflow-hidden bg-dark shadow-2xl">
+            <div className="absolute -inset-4 bg-indigo-500/10 blur-xl rounded-2xl rotate-3"></div>
+            <div className="relative aspect-square rounded-3xl border border-slate-800/80 overflow-hidden bg-slate-900 shadow-2xl">
               <img
                 src="https://api.dicebear.com/7.x/avataaars/svg?seed=Lalit"
                 alt="Lalit Saini"
@@ -79,10 +79,10 @@ const About = ({
             viewport={{ once: true }}
             className="flex flex-col gap-6"
           >
-            <h2 className="text-3xl font-bold text-white">
+            <h2 className="text-3xl md:text-4xl font-bold text-white">
               The Man Behind the Code
             </h2>
-            <p className="text-grayMid text-lg leading-relaxed">
+            <p className="text-slate-400 text-lg leading-relaxed">
               With over 4 years of experience in the digital space, I've
               transitioned from a curious experimenter to a professional
               architect of the web. My focus is on the intersection of{" "}
@@ -91,19 +91,19 @@ const About = ({
               <span className="text-white font-bold">business results</span>.
             </p>
             <div className="grid grid-cols-2 gap-6 mt-4">
-              <div className="p-4 rounded-xl bg-white/5 border border-white/5">
-                <span className="text-orange text-2xl font-bold block mb-1">
+              <div className="p-5 rounded-2xl bg-slate-900/30 border border-slate-800/80 shadow-md">
+                <span className="bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent text-3xl font-extrabold block mb-1">
                   50+
                 </span>
-                <span className="text-grayMid text-sm font-medium">
+                <span className="text-slate-400 text-sm font-semibold">
                   Projects Delivered
                 </span>
               </div>
-              <div className="p-4 rounded-xl bg-white/5 border border-white/5">
-                <span className="text-orange text-2xl font-bold block mb-1">
+              <div className="p-5 rounded-2xl bg-slate-900/30 border border-slate-800/80 shadow-md">
+                <span className="bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent text-3xl font-extrabold block mb-1">
                   4+
                 </span>
-                <span className="text-grayMid text-sm font-medium">
+                <span className="text-slate-400 text-sm font-semibold">
                   Years Experience
                 </span>
               </div>
@@ -116,10 +116,10 @@ const About = ({
       <section className="py-20 bg-dark">
         <div className="max-w-7xl mx-auto px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-white mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               My Methodology
             </h2>
-            <div className="h-1.5 w-20 bg-orange mx-auto rounded-full"></div>
+            <div className="h-1 w-20 bg-gradient-to-r from-indigo-500 to-cyan-500 mx-auto rounded-full"></div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -127,17 +127,17 @@ const About = ({
               {
                 title: "Strategy First",
                 desc: "I don't just write code. I analyze your business goals to ensure the technical choices drive real-world conversion.",
-                icon: <FaLightbulb className="text-orange" />,
+                icon: <FaLightbulb className="text-cyan-400" />,
               },
               {
                 title: "Premium Design",
                 desc: "Every pixel matters. I create modern, dark-themed aesthetics that command attention and build trust instantly.",
-                icon: <FaPalette className="text-orange" />,
+                icon: <FaPalette className="text-cyan-400" />,
               },
               {
                 title: "Scalable Code",
                 desc: "Using MERN & Next.js, I build foundations that grow with you, ensuring your site stays fast and secure.",
-                icon: <FaCode className="text-orange" />,
+                icon: <FaCode className="text-cyan-400" />,
               },
             ].map((item, idx) => (
               <motion.div
@@ -146,15 +146,15 @@ const About = ({
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                className="bg-white/5 border border-white/10 p-8 rounded-3xl hover:border-orange/50 transition-all group"
+                className="bg-slate-950/40 border border-slate-800/80 p-8 rounded-3xl hover:border-cyan-500/40 hover:shadow-[0_0_35px_rgba(6,182,212,0.12)] transition-all duration-500 group"
               >
-                <div className="w-14 h-14 bg-orange/10 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform">
+                <div className="w-14 h-14 bg-cyan-950/60 border border-cyan-800/30 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
                   {item.icon}
                 </div>
                 <h3 className="text-xl font-bold text-white mb-4">
                   {item.title}
                 </h3>
-                <p className="text-grayMid leading-relaxed text-sm">
+                <p className="text-slate-400 leading-relaxed text-sm">
                   {item.desc}
                 </p>
               </motion.div>
@@ -164,12 +164,13 @@ const About = ({
       </section>
 
       {/* Skills Section */}
-      <section className="bg-dark py-16 px-6 text-white">
-        <div className="text-center mb-10">
-          <h2 className="text-3xl font-bold">
-            My <span className="text-orange">Skills</span>
+      <section className="bg-slate-950/20 py-20 px-6 text-white relative">
+        <div className="absolute top-0 right-1/4 w-[300px] h-[300px] bg-cyan-500/5 blur-[100px] rounded-full pointer-events-none"></div>
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-5xl font-extrabold">
+            My <span className="bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent">Skills</span>
           </h2>
-          <p className="text-grayMid mt-3 text-sm md:text-base">
+          <p className="text-slate-400 mt-4 text-sm md:text-base max-w-xl mx-auto leading-relaxed">
             Combining technical expertise and design thinking to deliver
             top-tier web solutions.
           </p>
@@ -178,29 +179,29 @@ const About = ({
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {[
             {
-              icon: <FaCode className="text-orange text-4xl mb-4" />,
+              icon: <FaCode className="text-cyan-400 text-4xl mb-4" />,
               title: "Frontend Development",
               text: "React.js, Next.js, Tailwind CSS, Framer Motion, responsive design.",
             },
             {
-              icon: <FaLaptopCode className="text-orange text-4xl mb-4" />,
+              icon: <FaLaptopCode className="text-cyan-400 text-4xl mb-4" />,
               title: "Backend Development",
               text: "Node.js, Express.js, MongoDB, REST APIs, authentication, and security.",
             },
             {
-              icon: <FaRocket className="text-orange text-4xl mb-4" />,
+              icon: <FaRocket className="text-cyan-400 text-4xl mb-4" />,
               title: "SEO & Branding",
               text: "SEO optimization, personal branding, keyword-rich strategies.",
             },
           ].map((skill, i) => (
             <motion.div
               key={i}
-              whileHover={{ scale: 1.05 }}
-              className="bg-dark border border-grayMid/40 rounded-xl p-6 text-center"
+              whileHover={{ scale: 1.02, y: -4 }}
+              className="bg-slate-950/40 border border-slate-800/80 rounded-2xl p-8 text-center hover:border-cyan-500/30 hover:shadow-[0_0_25px_rgba(6,182,212,0.08)] transition-all duration-300"
             >
-              {skill.icon}
-              <h4 className="text-xl font-semibold">{skill.title}</h4>
-              <p className="text-grayMid mt-2 text-sm leading-relaxed">
+              <div className="flex justify-center">{skill.icon}</div>
+              <h4 className="text-xl font-bold text-white mb-2">{skill.title}</h4>
+              <p className="text-slate-400 text-sm leading-relaxed">
                 {skill.text}
               </p>
             </motion.div>
@@ -210,30 +211,28 @@ const About = ({
 
       {/* Local Network Section */}
       <section className="max-w-6xl mx-auto px-6 py-20 text-white">
-        <div className="text-center mb-10">
-          <h2 className="text-3xl font-bold">
-            My <span className="text-orange">Local Network</span>
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-5xl font-extrabold">
+            My <span className="bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent">Local Network</span>
           </h2>
-          <p className="text-grayMid mt-3 text-sm md:text-base">
-            As <strong>Web Developer Lalit Saini</strong>, I collaborate with
-            local businesses, startups, and entrepreneurs to build strong
-            relationships and lasting impact.
+          <p className="text-slate-400 mt-4 text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
+            As a dedicated developer, I collaborate with local businesses, startups, and entrepreneurs to build strong relationships and lasting digital impact.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
           {[
             {
-              icon: <FaMapMarkerAlt className="text-orange text-3xl mb-3" />,
+              icon: <FaMapMarkerAlt className="text-cyan-400 text-3xl mb-3" />,
               title: "Local Presence",
               text: "Based in India and available for meetups, networking, and collaborations.",
             },
             {
-              icon: <FaUsers className="text-orange text-3xl mb-3" />,
+              icon: <FaUsers className="text-cyan-400 text-3xl mb-3" />,
               title: "Community Focused",
               text: "Working closely with entrepreneurs and professionals in the region.",
             },
             {
-              icon: <FaHandshake className="text-orange text-3xl mb-3" />,
+              icon: <FaHandshake className="text-cyan-400 text-3xl mb-3" />,
               title: "Partnerships",
               text: "Helping local businesses grow with tech-powered solutions.",
             },
@@ -241,13 +240,14 @@ const About = ({
             <motion.div
               key={i}
               whileInView={{ opacity: 1, y: 0 }}
-              initial={{ opacity: 0, y: 40 }}
-              transition={{ duration: 0.6 }}
-              className="bg-dark border border-grayMid/40 rounded-xl p-8"
+              initial={{ opacity: 0, y: 30 }}
+              transition={{ duration: 0.6, delay: i * 0.1 }}
+              viewport={{ once: true }}
+              className="bg-slate-950/40 border border-slate-800/80 rounded-2xl p-8 hover:border-cyan-500/30 hover:shadow-[0_0_25px_rgba(6,182,212,0.08)] transition-all duration-300"
             >
-              {item.icon}
-              <h3 className="text-xl font-semibold">{item.title}</h3>
-              <p className="text-grayMid mt-2 text-sm leading-relaxed">
+              <div className="flex justify-center">{item.icon}</div>
+              <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
+              <p className="text-slate-400 text-sm leading-relaxed">
                 {item.text}
               </p>
             </motion.div>
@@ -256,36 +256,36 @@ const About = ({
       </section>
 
       {/* Experience Section */}
-      <section className="bg-dark/80 py-16 px-6 text-white text-center">
-        <h2 className="text-3xl font-bold mb-6">
-          Experience & <span className="text-orange">Achievements</span>
+      <section className="bg-slate-950/20 py-20 px-6 text-white text-center">
+        <h2 className="text-3xl md:text-5xl font-extrabold mb-16">
+          Experience & <span className="bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent">Achievements</span>
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {[
             {
-              icon: <FaAward className="text-orange text-4xl mb-4" />,
+              icon: <FaAward className="text-cyan-400 text-4xl mb-4" />,
               title: "15+ Projects Completed",
               text: "Successfully delivered web and mobile solutions for various industries.",
             },
             {
-              icon: <FaBriefcase className="text-orange text-4xl mb-4" />,
+              icon: <FaBriefcase className="text-cyan-400 text-4xl mb-4" />,
               title: "5+ Happy Clients",
               text: "Building lasting relationships with businesses worldwide.",
             },
             {
-              icon: <FaUserTie className="text-orange text-4xl mb-4" />,
+              icon: <FaUserTie className="text-cyan-400 text-4xl mb-4" />,
               title: "2+ Years Experience",
               text: "Constantly improving and adapting to the latest web technologies.",
             },
           ].map((item, i) => (
             <motion.div
               key={i}
-              whileHover={{ scale: 1.05 }}
-              className="bg-dark border border-grayMid/40 rounded-xl p-6"
+              whileHover={{ scale: 1.02, y: -4 }}
+              className="bg-slate-950/40 border border-slate-800/80 rounded-2xl p-8 hover:border-cyan-500/30 hover:shadow-[0_0_25px_rgba(6,182,212,0.08)] transition-all duration-300"
             >
-              {item.icon}
-              <h4 className="text-xl font-semibold">{item.title}</h4>
-              <p className="text-grayMid mt-2 text-sm leading-relaxed">
+              <div className="flex justify-center">{item.icon}</div>
+              <h4 className="text-xl font-bold text-white mb-2">{item.title}</h4>
+              <p className="text-slate-400 text-sm leading-relaxed">
                 {item.text}
               </p>
             </motion.div>
@@ -294,24 +294,26 @@ const About = ({
       </section>
 
       {/* CTA Section */}
-      <section className="text-center py-16 px-6 bg-dark/90 text-white flex flex-col items-center">
-        <h2 className="text-2xl md:text-4xl font-bold">
-          Want to work with{" "}
-          <span className="text-orange">Web Developer Lalit Saini?</span>
-        </h2>
-        <p className="text-grayMid mt-3 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
-          Let’s build something amazing! Whether it's a full-stack app, SaaS
-          platform, or SEO-optimized business website,{" "}
-          <strong>W3Lalitsaini</strong> is here to help you grow.
-        </p>
-        <div className="mt-6">
-          <NavLink to="/contact">
-            <Button
-              title="Start a Project"
-              variant="solid"
-              aria-label="Navigate to contact page to start a project"
-            />
-          </NavLink>
+      <section className="py-20 px-6 max-w-5xl mx-auto text-white">
+        <div className="bg-slate-950/40 border border-slate-800/80 rounded-3xl p-8 md:p-12 text-center flex flex-col items-center shadow-2xl relative overflow-hidden backdrop-blur-md">
+          <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/5 blur-[80px] rounded-full pointer-events-none"></div>
+          <div className="absolute bottom-0 left-0 w-32 h-32 bg-indigo-500/5 blur-[80px] rounded-full pointer-events-none"></div>
+          <h2 className="text-3xl md:text-4xl font-extrabold max-w-2xl relative z-10">
+            Want to work with <span className="bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent">Lalit Saini?</span>
+          </h2>
+          <p className="text-slate-400 mt-4 max-w-2xl mx-auto text-sm md:text-base leading-relaxed relative z-10">
+            Let’s build something amazing! Whether it's a full-stack app, SaaS
+            platform, or SEO-optimized business website, <strong>W3Lalitsaini</strong> is here to help you grow.
+          </p>
+          <div className="mt-8 relative z-10">
+            <NavLink to="/contact">
+              <Button
+                title="Start a Project"
+                variant="solid"
+                aria-label="Navigate to contact page to start a project"
+              />
+            </NavLink>
+          </div>
         </div>
       </section>
     </main>

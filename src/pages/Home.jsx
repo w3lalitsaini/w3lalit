@@ -27,29 +27,34 @@ const Home = () => {
       />
 
       {/* Hero Section */}
+      {/* Hero Section */}
       <section
         id="home"
-        className="bg-dark bg-dots min-h-screen flex flex-col pt-28"
+        className="bg-dark bg-dots min-h-screen flex flex-col pt-32 pb-16 relative overflow-hidden"
       >
-        <div className="flex flex-col justify-center items-center text-center text-white px-6 flex-1">
+        {/* Glow Effects */}
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-indigo-500/10 blur-[120px] rounded-full pointer-events-none"></div>
+        <div className="absolute top-1/3 left-1/4 w-[300px] h-[300px] bg-cyan-500/5 blur-[100px] rounded-full pointer-events-none"></div>
+
+        <div className="flex flex-col justify-center items-center text-center text-white px-6 flex-1 relative z-10">
           <motion.div
-            className="bg-black border border-grayMid text-sm px-4 py-1 rounded-full mb-6 flex items-center gap-2"
+            className="bg-slate-950/80 border border-slate-800/80 text-xs px-4 py-1.5 rounded-full mb-8 flex items-center gap-2.5 shadow-xl backdrop-blur-md"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9 }}
           >
-            <span className="relative flex h-3 w-3">
+            <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-100"></span>
-              <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
             </span>
 
-            <span>
+            <span className="text-slate-300 font-medium">
               Available now — let's collaborate on your next big idea.
             </span>
           </motion.div>
 
           <motion.h3
-            className="text-orange text-lg font-headline"
+            className="text-cyan-400 text-sm md:text-base font-bold uppercase tracking-widest"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.9 }}
@@ -57,23 +62,17 @@ const Home = () => {
             Hey! My name is Lalit Saini
           </motion.h3>
 
-          <motion.h2
-            className="text-3xl md:text-5xl font-semibold leading-tight mt-2"
+          <motion.h1
+            className="text-4xl md:text-7xl font-extrabold leading-tight tracking-tight mt-4 max-w-4xl"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.9 }}
           >
-            I help <span className="text-orange font-headline">brands</span>{" "}
-            shine online with
-            <span className="text-orange font-headline">
-              {" "}
-              high-converting
-            </span>{" "}
-            websites.
-          </motion.h2>
+            I help <span className="text-gradient">brands</span> shine online with <span className="text-gradient">high-converting</span> websites.
+          </motion.h1>
 
           <motion.p
-            className="mt-4 text-grayMid text-xl max-w-2xl"
+            className="mt-6 text-slate-400 text-lg md:text-xl max-w-2xl font-medium leading-relaxed"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6, duration: 0.9 }}
@@ -83,7 +82,7 @@ const Home = () => {
           </motion.p>
 
           <motion.p
-            className="mt-2 text-grayMid text-lg max-w-xl"
+            className="mt-3 text-slate-500 text-base md:text-lg max-w-xl leading-relaxed"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8, duration: 0.9 }}
@@ -93,7 +92,7 @@ const Home = () => {
           </motion.p>
 
           <motion.div
-            className="my-6 flex items-center gap-6 flex-wrap justify-center"
+            className="my-8 flex items-center gap-6 flex-wrap justify-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1, duration: 0.9 }}
@@ -112,7 +111,7 @@ const Home = () => {
 
         {/* Scrolling Tech Logos */}
         <InfinityScrollBar />
-        <h2 className="text-center font-semibold font-headline text-2xl md:text-3xl py-6 text-orange">
+        <h2 className="text-center font-bold font-headline text-2xl md:text-3xl py-10 bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent mt-8">
           Powerful stacks behind stunning projects
         </h2>
         <InfinityScrollBar2 />

@@ -90,11 +90,11 @@ const Services = ({
       />
 
       {/* Heading */}
-      <div className="text-center mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
+      <div className="text-center mb-16">
+        <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-4">
           Our Services
         </h2>
-        <p className="text-grayMid text-sm md:text-base max-w-2xl mx-auto">
+        <p className="text-slate-400 text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
           We provide end-to-end web solutions, from beautiful design to SEO and
           brand strategy, helping you grow your online presence.
         </p>
@@ -105,17 +105,19 @@ const Services = ({
         {services.map((service, i) => (
           <div
             key={i}
-            className="relative group p-[1px] rounded-xl bg-gradient-to-br from-orange via-orange/50 to-dark hover:scale-[1.02] transition-transform duration-300"
+            className="relative group p-[1px] rounded-2xl bg-gradient-to-br from-indigo-500/20 via-purple-500/10 to-cyan-500/20 hover:from-indigo-500 hover:via-purple-500 hover:to-cyan-500 transition-all duration-500 hover:scale-[1.02]"
           >
             <div
-              className="p-6 rounded-xl bg-dark text-center flex flex-col items-center 
-              transition-all duration-300 group-hover:shadow-[0_0_4px_4px_rgba(255,107,53,0.5)]"
+              className="p-8 rounded-2xl bg-slate-950/90 text-center flex flex-col items-center h-full
+              transition-all duration-500 group-hover:shadow-[0_0_25px_rgba(99,102,241,0.12)]"
             >
-              <div className="mb-4">{service.icon}</div>
-              <h3 className="text-lg font-semibold text-white mb-2">
+              <div className="mb-6 p-4 bg-slate-900 rounded-2xl border border-slate-800 group-hover:border-cyan-500/30 transition-colors duration-300">
+                {React.cloneElement(service.icon, { className: "text-cyan-400 text-4xl" })}
+              </div>
+              <h3 className="text-lg font-bold text-white mb-2">
                 {service.title}
               </h3>
-              <p className="text-grayMid text-sm leading-relaxed">
+              <p className="text-slate-400 text-sm leading-relaxed">
                 {service.description}
               </p>
             </div>
@@ -124,15 +126,15 @@ const Services = ({
       </div>
 
       {/* CTA */}
-      <div className="mt-12 text-center">
-        <h3 className="text-lg md:text-xl font-semibold text-white mb-6">
+      <div className="mt-20 text-center p-8 rounded-3xl bg-slate-950/40 border border-slate-800/80 max-w-3xl mx-auto backdrop-blur-sm">
+        <h3 className="text-lg md:text-2xl font-bold text-white mb-6">
           Ready to take your business online?
         </h3>
         <Button
           title="Get In Touch"
           onClick={() => navigate("/contact")}
           variant="solid"
-          className="mx-auto block" // centers the button
+          className="mx-auto" // centers the button
         />
       </div>
 

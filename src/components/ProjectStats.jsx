@@ -57,15 +57,15 @@ const ProjectStats = () => {
         {stats.map((stat, i) => (
           <div
             key={i}
-            className="group p-6 rounded-lg border border-grayMid/30 bg-dark/50 
-                       hover:bg-dark/70 hover:border-orange/70 
-                       transition-all duration-300 shadow-md"
+            className="group p-6 rounded-2xl border border-slate-800 bg-slate-950/30 
+                       hover:bg-slate-950/60 hover:border-cyan-500/40 
+                       transition-all duration-500 shadow-lg hover:shadow-[0_0_25px_rgba(6,182,212,0.1)]"
           >
-            <h3 className="text-4xl font-bold text-orange group-hover:scale-110 transition-transform duration-300">
-              {counts[i]}
-              {stat.suffix}
+            <h3 className="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent transition-transform duration-300 flex items-center justify-center gap-0.5">
+              <span>{counts[i]}</span>
+              <span className="text-cyan-400">{stat.suffix}</span>
             </h3>
-            <p className="text-grayMid text-sm mt-2">{stat.label}</p>
+            <p className="text-slate-400 text-sm mt-3 font-medium">{stat.label}</p>
           </div>
         ))}
       </div>
