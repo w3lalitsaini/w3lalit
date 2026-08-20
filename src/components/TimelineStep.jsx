@@ -59,12 +59,7 @@ const TimelineStep = ({
           }}
           className="relative flex flex-col items-center"
         >
-          <img
-            src={avatar}
-            alt={centerText}
-            className="w-14 h-14 rounded-full border-2 border-indigo-500/30 object-cover shadow-lg"
-            loading="lazy"
-          />
+          
           {centerText && (
             <p className="text-xs text-slate-400 mt-2 font-medium">{centerText}</p>
           )}

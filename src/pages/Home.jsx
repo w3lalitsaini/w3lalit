@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import Button from "../components/Button";
 import { useNavigate } from "react-router-dom";
 import InfinityScrollBar from "../components/InfinityScrollBar";
-import InfinityScrollBar2 from "../components/InfinityScrollBar2";
 import FeaturesSection from "../components/FeaturesSection";
 import TestimonialScroll from "../components/Testimonial";
 import Services from "../components/Services";
