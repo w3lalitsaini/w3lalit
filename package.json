@@ -1,0 +1,9 @@
+{
+  "name": "w3lalit",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Lalit Saini Full-Stack Web Developer & Systems Engineer Portfolio",
+  "scripts": {
+    "build": "echo 'Static HTML site ready'"
+  }
+}
