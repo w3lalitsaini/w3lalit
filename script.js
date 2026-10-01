@@ -133,10 +133,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // -------------------------------------------------------------
-    // Active Navigation Highlight
+    // Active Navigation Highlight in Menu Drawer
     // -------------------------------------------------------------
     const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-link');
 
     if (sections.length && typeof ScrollTrigger !== 'undefined') {
         sections.forEach(section => {
@@ -150,13 +149,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         function updateActiveNav(id) {
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${id}`) {
-                    link.classList.add('active');
-                }
-            });
-
             drawerLinks.forEach(link => {
                 link.classList.remove('active');
                 if (link.getAttribute('href') === `#${id}`) {
