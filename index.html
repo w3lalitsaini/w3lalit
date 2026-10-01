@@ -87,12 +87,8 @@
   <div class="grid-bg"></div>
   <div class="blueprint-lines"></div>
 
-  <!-- Custom Cursor -->
-  <div class="custom-cursor" id="customCursor"></div>
-  <div class="custom-cursor-dot" id="customCursorDot"></div>
-
   <!-- -------------------------------------------------------------
-       Navigation Section
+       Navigation Section (Desktop + Mobile Menu Bar)
        ------------------------------------------------------------- -->
   <nav class="navbar" id="mainNavbar">
     <div class="navbar-container">
@@ -116,76 +112,80 @@
 
       <div class="nav-cta-wrap">
         <a class="btn-primary nav-talk-btn" href="#contact">Let's Talk</a>
-        <button class="nav-menu-btn" id="menuToggle" aria-label="Open Menu">
+        <button class="nav-menu-btn" id="menuToggle" aria-label="Open Navigation Menu" title="Open Menu">
           <i class="material-symbols-outlined">menu</i>
+          <span class="nav-menu-btn-text">Menu</span>
         </button>
       </div>
     </div>
   </nav>
 
-  <!-- Mobile Slide-out Menu Drawer with Cross Close Icon -->
-  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
-    <div class="mobile-menu-header">
-      <a class="nav-logo" href="#home">
-        <span class="logo-bracket">[</span>W3LALIT<span class="logo-accent">.DEV</span><span class="logo-bracket">]</span>
-      </a>
-      <button class="mobile-menu-close-btn" id="mobileMenuClose" aria-label="Close Menu">
-        <i class="material-symbols-outlined">close</i>
-      </button>
-    </div>
+  <!-- Slide-out Navigation Drawer (Desktop & Mobile) with Cross Close Icon -->
+  <div class="site-drawer" id="siteDrawer" aria-hidden="true">
+    <div class="drawer-backdrop" id="drawerBackdrop"></div>
+    <div class="drawer-panel">
+      <div class="drawer-header">
+        <a class="nav-logo" href="#home">
+          <span class="logo-bracket">[</span>W3LALIT<span class="logo-accent">.DEV</span><span class="logo-bracket">]</span>
+        </a>
+        <button class="drawer-close-btn" id="drawerCloseBtn" aria-label="Close Menu" title="Close Menu">
+          <i class="material-symbols-outlined">close</i>
+        </button>
+      </div>
 
-    <div class="mobile-menu-links">
-      <a class="mobile-menu-link" href="#home">
-        <span class="menu-idx">01</span>
-        <span class="menu-text">Home</span>
-      </a>
-      <a class="mobile-menu-link" href="#stats">
-        <span class="menu-idx">02</span>
-        <span class="menu-text">Impact & Stats</span>
-      </a>
-      <a class="mobile-menu-link" href="#about">
-        <span class="menu-idx">03</span>
-        <span class="menu-text">About</span>
-      </a>
-      <a class="mobile-menu-link" href="#capabilities">
-        <span class="menu-idx">04</span>
-        <span class="menu-text">Capabilities</span>
-      </a>
-      <a class="mobile-menu-link" href="#work">
-        <span class="menu-idx">05</span>
-        <span class="menu-text">Projects</span>
-      </a>
-      <a class="mobile-menu-link" href="#services">
-        <span class="menu-idx">06</span>
-        <span class="menu-text">Services</span>
-      </a>
-      <a class="mobile-menu-link" href="#pricing">
-        <span class="menu-idx">07</span>
-        <span class="menu-text">Pricing Plans</span>
-      </a>
-      <a class="mobile-menu-link" href="#testimonials">
-        <span class="menu-idx">08</span>
-        <span class="menu-text">Client Reviews</span>
-      </a>
-      <a class="mobile-menu-link" href="#process">
-        <span class="menu-idx">09</span>
-        <span class="menu-text">Methodology</span>
-      </a>
-      <a class="mobile-menu-link" href="#faq">
-        <span class="menu-idx">10</span>
-        <span class="menu-text">FAQ</span>
-      </a>
-      <a class="mobile-menu-link" href="#contact">
-        <span class="menu-idx">11</span>
-        <span class="menu-text">Contact</span>
-      </a>
-    </div>
+      <div class="drawer-links">
+        <a class="drawer-link" href="#home">
+          <span class="menu-idx">01</span>
+          <span class="menu-text">Home</span>
+        </a>
+        <a class="drawer-link" href="#stats">
+          <span class="menu-idx">02</span>
+          <span class="menu-text">Impact & Stats</span>
+        </a>
+        <a class="drawer-link" href="#about">
+          <span class="menu-idx">03</span>
+          <span class="menu-text">About Me</span>
+        </a>
+        <a class="drawer-link" href="#capabilities">
+          <span class="menu-idx">04</span>
+          <span class="menu-text">Tech Capabilities</span>
+        </a>
+        <a class="drawer-link" href="#work">
+          <span class="menu-idx">05</span>
+          <span class="menu-text">Selected Projects</span>
+        </a>
+        <a class="drawer-link" href="#services">
+          <span class="menu-idx">06</span>
+          <span class="menu-text">Services & Solutions</span>
+        </a>
+        <a class="drawer-link" href="#pricing">
+          <span class="menu-idx">07</span>
+          <span class="menu-text">Pricing Plans</span>
+        </a>
+        <a class="drawer-link" href="#testimonials">
+          <span class="menu-idx">08</span>
+          <span class="menu-text">Client Testimonials</span>
+        </a>
+        <a class="drawer-link" href="#process">
+          <span class="menu-idx">09</span>
+          <span class="menu-text">Methodology</span>
+        </a>
+        <a class="drawer-link" href="#faq">
+          <span class="menu-idx">10</span>
+          <span class="menu-text">FAQ</span>
+        </a>
+        <a class="drawer-link" href="#contact">
+          <span class="menu-idx">11</span>
+          <span class="menu-text">Contact & Inquiry</span>
+        </a>
+      </div>
 
-    <div class="mobile-menu-footer">
-      <a class="btn-primary w-full text-center" href="#contact">Initialize Project Inquiry</a>
-      <div class="mobile-contact-snippet">
-        <span class="font-label-caps">DIRECT: Sainilalit2751@gmail.com</span>
-        <span class="font-label-caps">LOCATION: Sikar, Rajasthan, India</span>
+      <div class="drawer-footer">
+        <a class="btn-primary w-full text-center" href="#contact">Initialize Sequence</a>
+        <div class="drawer-contact-snippet">
+          <span class="font-label-mono text-primary">DIRECT: Sainilalit2751@gmail.com</span>
+          <span class="font-label-caps">PHONE: +91 98873 74746 • SIKAR, RAJASTHAN</span>
+        </div>
       </div>
     </div>
   </div>
@@ -262,7 +262,7 @@
             <div class="stat-card">
               <div class="stat-card-accent"></div>
               <div class="stat-number-wrap">
-                <span class="stat-number" data-target="20">0</span><span class="stat-suffix">+</span>
+                <span class="stat-number" data-target="20">20</span><span class="stat-suffix">+</span>
               </div>
               <p class="stat-label">Projects Completed</p>
               <span class="stat-sub">SaaS & Web Applications</span>
@@ -271,7 +271,7 @@
             <div class="stat-card">
               <div class="stat-card-accent"></div>
               <div class="stat-number-wrap">
-                <span class="stat-number" data-target="10">0</span><span class="stat-suffix">+</span>
+                <span class="stat-number" data-target="10">10</span><span class="stat-suffix">+</span>
               </div>
               <p class="stat-label">Happy Clients</p>
               <span class="stat-sub">Worldwide Collaborations</span>
@@ -280,7 +280,7 @@
             <div class="stat-card">
               <div class="stat-card-accent"></div>
               <div class="stat-number-wrap">
-                <span class="stat-number" data-target="4">0</span><span class="stat-suffix">+</span>
+                <span class="stat-number" data-target="4">4</span><span class="stat-suffix">+</span>
               </div>
               <p class="stat-label">Years Experience</p>
               <span class="stat-sub">Continuous Web Mastery</span>
@@ -289,7 +289,7 @@
             <div class="stat-card">
               <div class="stat-card-accent"></div>
               <div class="stat-number-wrap">
-                <span class="stat-number" data-target="100">0</span><span class="stat-suffix">%</span>
+                <span class="stat-number" data-target="100">100</span><span class="stat-suffix">%</span>
               </div>
               <p class="stat-label">Client Satisfaction</p>
               <span class="stat-sub">Speed & Code Quality</span>

@@ -3,7 +3,7 @@
    ------------------------------------------------------------- */
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Register GSAP plugins
+    // Register GSAP plugins safely
     if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
         gsap.registerPlugin(ScrollTrigger);
     }
@@ -21,7 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
             gestureOrientation: 'vertical',
         });
 
-        lenis.on('scroll', ScrollTrigger.update);
+        if (typeof ScrollTrigger !== 'undefined') {
+            lenis.on('scroll', ScrollTrigger.update);
+        }
 
         gsap.ticker.add((time) => {
             lenis.raf(time * 1000);
@@ -30,7 +32,63 @@ document.addEventListener('DOMContentLoaded', () => {
         gsap.ticker.lagSmoothing(0);
     }
 
-    // Smooth scroll for internal navigation anchors
+    // -------------------------------------------------------------
+    // Slide-out Navigation Drawer (Desktop & Mobile)
+    // -------------------------------------------------------------
+    const siteDrawer = document.getElementById('siteDrawer');
+    const menuToggle = document.getElementById('menuToggle');
+    const drawerCloseBtn = document.getElementById('drawerCloseBtn');
+    const drawerBackdrop = document.getElementById('drawerBackdrop');
+    const drawerLinks = document.querySelectorAll('.drawer-link');
+
+    function openDrawer() {
+        if (!siteDrawer) return;
+        siteDrawer.classList.add('open');
+        siteDrawer.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        if (lenis) lenis.stop();
+
+        if (typeof gsap !== 'undefined') {
+            gsap.fromTo('.drawer-link',
+                { opacity: 0, x: 20 },
+                { opacity: 1, x: 0, stagger: 0.03, duration: 0.35, ease: 'power2.out', delay: 0.08 }
+            );
+        }
+    }
+
+    function closeDrawer() {
+        if (!siteDrawer || !siteDrawer.classList.contains('open')) return;
+        siteDrawer.classList.remove('open');
+        siteDrawer.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        if (lenis) lenis.start();
+    }
+
+    if (menuToggle) {
+        menuToggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            openDrawer();
+        });
+    }
+
+    if (drawerCloseBtn) {
+        drawerCloseBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            closeDrawer();
+        });
+    }
+
+    if (drawerBackdrop) {
+        drawerBackdrop.addEventListener('click', closeDrawer);
+    }
+
+    drawerLinks.forEach(link => {
+        link.addEventListener('click', closeDrawer);
+    });
+
+    // -------------------------------------------------------------
+    // Smooth Anchor Navigation
+    // -------------------------------------------------------------
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             const targetId = this.getAttribute('href');
@@ -38,10 +96,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const target = document.querySelector(targetId);
             if (target) {
                 e.preventDefault();
-                closeMobileMenu(); // Close mobile drawer if open
+                closeDrawer();
                 if (lenis) {
                     lenis.scrollTo(target, {
-                        offset: -80, // Navbar height offset
+                        offset: -80,
                         duration: 1.2,
                         ease: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
                     });
@@ -53,54 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // -------------------------------------------------------------
-    // Custom Interactive Cursor
-    // -------------------------------------------------------------
-    const cursor = document.getElementById('customCursor');
-    const cursorDot = document.getElementById('customCursorDot');
-
-    if (cursor && cursorDot && window.innerWidth > 1024) {
-        document.addEventListener('mousemove', (e) => {
-            gsap.to(cursor, { x: e.clientX, y: e.clientY, duration: 0.22, ease: 'power2.out' });
-            gsap.to(cursorDot, { x: e.clientX, y: e.clientY, duration: 0.05, ease: 'power2.out' });
-        });
-
-        const hoverSelectors = 'a, button, select, input, textarea, .service-row, .bento-card, .project-card, .filter-btn, .pricing-card, .faq-header, .stat-card, .marquee-tag';
-        const hoverElements = document.querySelectorAll(hoverSelectors);
-
-        hoverElements.forEach(element => {
-            element.addEventListener('mouseenter', () => {
-                gsap.to(cursor, {
-                    width: 44,
-                    height: 44,
-                    backgroundColor: 'rgba(0, 102, 255, 0.08)',
-                    borderColor: 'rgba(0, 102, 255, 0.4)',
-                    duration: 0.3
-                });
-                gsap.to(cursorDot, {
-                    scale: 1.5,
-                    backgroundColor: 'var(--color-primary)',
-                    duration: 0.2
-                });
-            });
-            element.addEventListener('mouseleave', () => {
-                gsap.to(cursor, {
-                    width: 20,
-                    height: 20,
-                    backgroundColor: 'transparent',
-                    borderColor: 'var(--color-primary)',
-                    duration: 0.3
-                });
-                gsap.to(cursorDot, {
-                    scale: 1.0,
-                    backgroundColor: 'var(--color-primary)',
-                    duration: 0.2
-                });
-            });
-        });
-    }
-
-    // -------------------------------------------------------------
-    // Dynamic Navbar Scroll Behavior
+    // Dynamic Navbar Scroll Behavior (Hide on scroll down, show on scroll up)
     // -------------------------------------------------------------
     let lastScrollY = 0;
     const navbar = document.getElementById('mainNavbar');
@@ -108,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (navbar) {
         window.addEventListener('scroll', () => {
             const currentScrollY = window.scrollY;
-            if (currentScrollY > 100) {
+            if (currentScrollY > 120) {
                 if (currentScrollY > lastScrollY && currentScrollY - lastScrollY > 5) {
                     navbar.classList.add('nav-hidden');
                 } else if (lastScrollY - currentScrollY > 5) {
@@ -122,58 +133,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // -------------------------------------------------------------
-    // Mobile Navigation Menu Drawer with Dedicated Close Cross
-    // -------------------------------------------------------------
-    const menuToggle = document.getElementById('menuToggle');
-    const mobileMenu = document.getElementById('mobileMenu');
-    const mobileMenuClose = document.getElementById('mobileMenuClose');
-
-    function openMobileMenu() {
-        if (!mobileMenu) return;
-        mobileMenu.classList.add('open');
-        mobileMenu.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
-        if (lenis) lenis.stop();
-
-        gsap.fromTo('.mobile-menu-link',
-            { opacity: 0, x: 25 },
-            { opacity: 1, x: 0, stagger: 0.04, duration: 0.4, ease: 'power3.out', delay: 0.1 }
-        );
-    }
-
-    function closeMobileMenu() {
-        if (!mobileMenu || !mobileMenu.classList.contains('open')) return;
-        mobileMenu.classList.remove('open');
-        mobileMenu.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-        if (lenis) lenis.start();
-    }
-
-    if (menuToggle) {
-        menuToggle.addEventListener('click', openMobileMenu);
-    }
-
-    if (mobileMenuClose) {
-        mobileMenuClose.addEventListener('click', closeMobileMenu);
-    }
-
-    document.querySelectorAll('.mobile-menu-link').forEach(link => {
-        link.addEventListener('click', closeMobileMenu);
-    });
-
-    // -------------------------------------------------------------
-    // Active Nav Item Highlighting
+    // Active Navigation Highlight
     // -------------------------------------------------------------
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-link');
-    const mobileNavLinks = document.querySelectorAll('.mobile-menu-link');
 
-    if (sections.length) {
+    if (sections.length && typeof ScrollTrigger !== 'undefined') {
         sections.forEach(section => {
             ScrollTrigger.create({
                 trigger: section,
-                start: 'top 40%',
-                end: 'bottom 40%',
+                start: 'top 45%',
+                end: 'bottom 45%',
                 onEnter: () => updateActiveNav(section.id),
                 onEnterBack: () => updateActiveNav(section.id)
             });
@@ -187,7 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
 
-            mobileNavLinks.forEach(link => {
+            drawerLinks.forEach(link => {
                 link.classList.remove('active');
                 if (link.getAttribute('href') === `#${id}`) {
                     link.classList.add('active');
@@ -200,7 +170,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Animated Stats Counters
     // -------------------------------------------------------------
     const statCards = document.querySelectorAll('.stat-card');
-    if (statCards.length) {
+    if (statCards.length && typeof ScrollTrigger !== 'undefined') {
         let statsCounted = false;
 
         ScrollTrigger.create({
@@ -230,121 +200,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // -------------------------------------------------------------
-    // GSAP ScrollTrigger Section Animations
-    // -------------------------------------------------------------
-    if (typeof gsap !== 'undefined') {
-        // Hero Section Reveal
-        const heroTl = gsap.timeline();
-        heroTl.from('.hero-meta', { opacity: 0, y: 20, duration: 0.7, ease: 'power3.out' })
-            .from('.hero-title h1', { opacity: 0, y: 35, duration: 0.9, ease: 'power4.out' }, '-=0.4')
-            .from('.hero-desc p', { opacity: 0, y: 20, duration: 0.7, ease: 'power3.out' }, '-=0.5')
-            .from('.hero-actions a', { opacity: 0, y: 20, stagger: 0.15, duration: 0.7, ease: 'power3.out' }, '-=0.5')
-            .from('.marquee-tag', { opacity: 0, scale: 0.92, stagger: 0.04, duration: 0.45, ease: 'power2.out' }, '-=0.4');
-
-        // Section Labels
-        sections.forEach(section => {
-            const label = section.querySelector('.section-label');
-            if (label) {
-                gsap.from(label, {
-                    scrollTrigger: { trigger: section, start: 'top 85%' },
-                    opacity: 0,
-                    x: -25,
-                    duration: 0.8,
-                    ease: 'power3.out'
-                });
-            }
-        });
-
-        // Bento Cards
-        gsap.from('.bento-card', {
-            scrollTrigger: { trigger: '#capabilities', start: 'top 75%' },
-            opacity: 0,
-            y: 35,
-            stagger: 0.12,
-            duration: 0.9,
-            ease: 'power3.out'
-        });
-
-        // Project Cards
-        gsap.from('.project-card', {
-            scrollTrigger: { trigger: '#work', start: 'top 75%' },
-            opacity: 0,
-            y: 40,
-            stagger: 0.15,
-            duration: 1.0,
-            ease: 'power3.out'
-        });
-
-        // Service Rows
-        gsap.from('.service-row', {
-            scrollTrigger: { trigger: '#services', start: 'top 75%' },
-            opacity: 0,
-            y: 30,
-            stagger: 0.12,
-            duration: 0.9,
-            ease: 'power3.out'
-        });
-
-        // Pricing Cards
-        gsap.from('.pricing-card', {
-            scrollTrigger: { trigger: '#pricing', start: 'top 75%' },
-            opacity: 0,
-            y: 40,
-            stagger: 0.15,
-            duration: 0.9,
-            ease: 'power3.out'
-        });
-
-        // Testimonial Cards
-        gsap.from('.testimonial-card', {
-            scrollTrigger: { trigger: '#testimonials', start: 'top 75%' },
-            opacity: 0,
-            y: 30,
-            stagger: 0.15,
-            duration: 0.9,
-            ease: 'power3.out'
-        });
-
-        // Process Cards
-        gsap.from('.process-card', {
-            scrollTrigger: { trigger: '#process', start: 'top 75%' },
-            opacity: 0,
-            y: 30,
-            stagger: 0.1,
-            duration: 0.8,
-            ease: 'power3.out'
-        });
-
-        // FAQ Items
-        gsap.from('.faq-item', {
-            scrollTrigger: { trigger: '#faq', start: 'top 75%' },
-            opacity: 0,
-            y: 20,
-            stagger: 0.1,
-            duration: 0.8,
-            ease: 'power3.out'
-        });
-
-        // Contact Section
-        gsap.from('.contact-form-container', {
-            scrollTrigger: { trigger: '#contact', start: 'top 75%' },
-            opacity: 0,
-            x: -30,
-            duration: 1.0,
-            ease: 'power3.out'
-        });
-
-        gsap.from('.contact-info-col .info-card', {
-            scrollTrigger: { trigger: '#contact', start: 'top 75%' },
-            opacity: 0,
-            x: 30,
-            stagger: 0.2,
-            duration: 1.0,
-            ease: 'power3.out'
-        });
-    }
-
-    // -------------------------------------------------------------
     // Project Category Filtering
     // -------------------------------------------------------------
     const filterButtons = document.querySelectorAll('.filter-btn');
@@ -362,27 +217,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (filterValue === 'all' || cardCategory === filterValue) {
                     card.style.display = 'flex';
-                    gsap.fromTo(card,
-                        { opacity: 0, scale: 0.96, y: 15 },
-                        { opacity: 1, scale: 1, y: 0, duration: 0.4, ease: 'power3.out' }
-                    );
+                    if (typeof gsap !== 'undefined') {
+                        gsap.fromTo(card,
+                            { opacity: 0, scale: 0.98, y: 10 },
+                            { opacity: 1, scale: 1, y: 0, duration: 0.35, ease: 'power2.out' }
+                        );
+                    }
                 } else {
-                    gsap.to(card, {
-                        opacity: 0,
-                        scale: 0.96,
-                        y: 10,
-                        duration: 0.25,
-                        ease: 'power3.in',
-                        onComplete: () => {
-                            card.style.display = 'none';
-                        }
-                    });
+                    card.style.display = 'none';
                 }
             });
 
-            setTimeout(() => {
-                if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
-            }, 350);
+            if (typeof ScrollTrigger !== 'undefined') {
+                setTimeout(() => ScrollTrigger.refresh(), 300);
+            }
         });
     });
 
@@ -435,7 +283,6 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.overflow = '';
     }
 
-    // Modal Trigger Buttons
     document.querySelectorAll('.project-modal-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.stopPropagation();
@@ -454,14 +301,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Global Keydown Handler (ESC for modal and mobile menu)
+    // Global Keydown Handler (ESC closes modal or drawer)
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
             if (modal && modal.classList.contains('open')) {
                 closeProjectModal();
             }
-            if (mobileMenu && mobileMenu.classList.contains('open')) {
-                closeMobileMenu();
+            if (siteDrawer && siteDrawer.classList.contains('open')) {
+                closeDrawer();
             }
         }
     });
@@ -477,7 +324,7 @@ document.addEventListener('DOMContentLoaded', () => {
             header.addEventListener('click', () => {
                 const isOpen = item.classList.contains('open');
 
-                // Close other items
+                // Close other accordion items
                 faqItems.forEach(otherItem => {
                     if (otherItem !== item) {
                         otherItem.classList.remove('open');
@@ -486,7 +333,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 });
 
-                // Toggle current item
+                // Toggle selected item
                 if (isOpen) {
                     item.classList.remove('open');
                     header.setAttribute('aria-expanded', 'false');
@@ -495,9 +342,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     header.setAttribute('aria-expanded', 'true');
                 }
 
-                setTimeout(() => {
-                    if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
-                }, 350);
+                if (typeof ScrollTrigger !== 'undefined') {
+                    setTimeout(() => ScrollTrigger.refresh(), 300);
+                }
             });
         }
     });
@@ -554,7 +401,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // -------------------------------------------------------------
-    // One-Click Direct Email & Phone Copy
+    // Direct Email Copy Button
     // -------------------------------------------------------------
     const emailBtn = document.getElementById('emailCopyBtn');
     const emailIcon = document.getElementById('emailCopyIcon');
