@@ -38,6 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const target = document.querySelector(targetId);
             if (target) {
                 e.preventDefault();
+                closeMobileMenu(); // Close mobile drawer if open
                 if (lenis) {
                     lenis.scrollTo(target, {
                         offset: -80, // Navbar height offset
@@ -63,15 +64,15 @@ document.addEventListener('DOMContentLoaded', () => {
             gsap.to(cursorDot, { x: e.clientX, y: e.clientY, duration: 0.05, ease: 'power2.out' });
         });
 
-        const hoverSelectors = 'a, button, select, input, textarea, .service-row, .bento-card, .project-card, .filter-btn, .pricing-card, .faq-header, .stat-card';
+        const hoverSelectors = 'a, button, select, input, textarea, .service-row, .bento-card, .project-card, .filter-btn, .pricing-card, .faq-header, .stat-card, .marquee-tag';
         const hoverElements = document.querySelectorAll(hoverSelectors);
 
         hoverElements.forEach(element => {
             element.addEventListener('mouseenter', () => {
                 gsap.to(cursor, {
-                    width: 42,
-                    height: 42,
-                    backgroundColor: 'rgba(0, 102, 255, 0.06)',
+                    width: 44,
+                    height: 44,
+                    backgroundColor: 'rgba(0, 102, 255, 0.08)',
                     borderColor: 'rgba(0, 102, 255, 0.4)',
                     duration: 0.3
                 });
@@ -121,46 +122,53 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // -------------------------------------------------------------
-    // Mobile Navigation Menu Drawer
+    // Mobile Navigation Menu Drawer with Dedicated Close Cross
     // -------------------------------------------------------------
     const menuToggle = document.getElementById('menuToggle');
     const mobileMenu = document.getElementById('mobileMenu');
+    const mobileMenuClose = document.getElementById('mobileMenuClose');
 
-    if (menuToggle && mobileMenu) {
-        const menuIcon = menuToggle.querySelector('i');
+    function openMobileMenu() {
+        if (!mobileMenu) return;
+        mobileMenu.classList.add('open');
+        mobileMenu.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        if (lenis) lenis.stop();
 
-        menuToggle.addEventListener('click', () => {
-            mobileMenu.classList.toggle('open');
-            if (mobileMenu.classList.contains('open')) {
-                if (menuIcon) menuIcon.textContent = 'close';
-                if (lenis) lenis.stop();
-
-                gsap.fromTo('.mobile-menu-link',
-                    { opacity: 0, x: 20 },
-                    { opacity: 1, x: 0, stagger: 0.08, duration: 0.5, ease: 'power3.out', delay: 0.15 }
-                );
-            } else {
-                if (menuIcon) menuIcon.textContent = 'menu';
-                if (lenis) lenis.start();
-            }
-        });
-
-        document.querySelectorAll('.mobile-menu-link').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('open');
-                if (menuIcon) menuIcon.textContent = 'menu';
-                if (lenis) lenis.start();
-            });
-        });
+        gsap.fromTo('.mobile-menu-link',
+            { opacity: 0, x: 25 },
+            { opacity: 1, x: 0, stagger: 0.04, duration: 0.4, ease: 'power3.out', delay: 0.1 }
+        );
     }
+
+    function closeMobileMenu() {
+        if (!mobileMenu || !mobileMenu.classList.contains('open')) return;
+        mobileMenu.classList.remove('open');
+        mobileMenu.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        if (lenis) lenis.start();
+    }
+
+    if (menuToggle) {
+        menuToggle.addEventListener('click', openMobileMenu);
+    }
+
+    if (mobileMenuClose) {
+        mobileMenuClose.addEventListener('click', closeMobileMenu);
+    }
+
+    document.querySelectorAll('.mobile-menu-link').forEach(link => {
+        link.addEventListener('click', closeMobileMenu);
+    });
 
     // -------------------------------------------------------------
     // Active Nav Item Highlighting
     // -------------------------------------------------------------
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-link');
+    const mobileNavLinks = document.querySelectorAll('.mobile-menu-link');
 
-    if (sections.length && navLinks.length) {
+    if (sections.length) {
         sections.forEach(section => {
             ScrollTrigger.create({
                 trigger: section,
@@ -173,6 +181,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         function updateActiveNav(id) {
             navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${id}`) {
+                    link.classList.add('active');
+                }
+            });
+
+            mobileNavLinks.forEach(link => {
                 link.classList.remove('active');
                 if (link.getAttribute('href') === `#${id}`) {
                     link.classList.add('active');
@@ -224,7 +239,7 @@ document.addEventListener('DOMContentLoaded', () => {
             .from('.hero-title h1', { opacity: 0, y: 35, duration: 0.9, ease: 'power4.out' }, '-=0.4')
             .from('.hero-desc p', { opacity: 0, y: 20, duration: 0.7, ease: 'power3.out' }, '-=0.5')
             .from('.hero-actions a', { opacity: 0, y: 20, stagger: 0.15, duration: 0.7, ease: 'power3.out' }, '-=0.5')
-            .from('.marquee-badge', { opacity: 0, scale: 0.92, stagger: 0.05, duration: 0.5, ease: 'power2.out' }, '-=0.4');
+            .from('.marquee-tag', { opacity: 0, scale: 0.92, stagger: 0.04, duration: 0.45, ease: 'power2.out' }, '-=0.4');
 
         // Section Labels
         sections.forEach(section => {
@@ -439,9 +454,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Global Keydown Handler (ESC for modal and mobile menu)
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modal && modal.classList.contains('open')) {
-            closeProjectModal();
+        if (e.key === 'Escape') {
+            if (modal && modal.classList.contains('open')) {
+                closeProjectModal();
+            }
+            if (mobileMenu && mobileMenu.classList.contains('open')) {
+                closeMobileMenu();
+            }
         }
     });
 

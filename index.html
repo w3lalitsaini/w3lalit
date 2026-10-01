@@ -70,7 +70,7 @@
 
   <!-- Premium Fonts: Space Grotesk (Display), Outfit (Headings), Inter (Body), JetBrains Mono (Technical/Labels) -->
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
     rel="stylesheet">
 
   <!-- Material Symbols for Minimalist Icons -->
@@ -96,41 +96,97 @@
        ------------------------------------------------------------- -->
   <nav class="navbar" id="mainNavbar">
     <div class="navbar-container">
-      <a class="nav-logo" href="#home">W3LALIT<span>.DEV</span></a>
+      <a class="nav-logo" href="#home">
+        <span class="logo-bracket">[</span>W3LALIT<span class="logo-accent">.DEV</span><span class="logo-bracket">]</span>
+      </a>
 
       <div class="nav-links">
         <a class="nav-link active" href="#home">Home</a>
+        <a class="nav-link" href="#stats">Stats</a>
         <a class="nav-link" href="#about">About</a>
+        <a class="nav-link" href="#capabilities">Skills</a>
         <a class="nav-link" href="#work">Projects</a>
         <a class="nav-link" href="#services">Services</a>
         <a class="nav-link" href="#pricing">Pricing</a>
         <a class="nav-link" href="#testimonials">Reviews</a>
+        <a class="nav-link" href="#process">Process</a>
         <a class="nav-link" href="#faq">FAQ</a>
         <a class="nav-link" href="#contact">Contact</a>
       </div>
 
-      <a class="btn-primary" href="#contact">Let's Talk</a>
-
-      <button class="nav-menu-btn" id="menuToggle" aria-label="Toggle Menu">
-        <i class="material-symbols-outlined">menu</i>
-      </button>
+      <div class="nav-cta-wrap">
+        <a class="btn-primary nav-talk-btn" href="#contact">Let's Talk</a>
+        <button class="nav-menu-btn" id="menuToggle" aria-label="Open Menu">
+          <i class="material-symbols-outlined">menu</i>
+        </button>
+      </div>
     </div>
   </nav>
 
-  <!-- Mobile Slide-out Menu -->
-  <div class="mobile-menu" id="mobileMenu">
-    <div class="mobile-menu-links">
-      <a class="mobile-menu-link" href="#home">Home</a>
-      <a class="mobile-menu-link" href="#about">About</a>
-      <a class="mobile-menu-link" href="#work">Projects</a>
-      <a class="mobile-menu-link" href="#services">Services</a>
-      <a class="mobile-menu-link" href="#pricing">Pricing</a>
-      <a class="mobile-menu-link" href="#testimonials">Reviews</a>
-      <a class="mobile-menu-link" href="#faq">FAQ</a>
-      <a class="mobile-menu-link" href="#contact">Contact</a>
+  <!-- Mobile Slide-out Menu Drawer with Cross Close Icon -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <div class="mobile-menu-header">
+      <a class="nav-logo" href="#home">
+        <span class="logo-bracket">[</span>W3LALIT<span class="logo-accent">.DEV</span><span class="logo-bracket">]</span>
+      </a>
+      <button class="mobile-menu-close-btn" id="mobileMenuClose" aria-label="Close Menu">
+        <i class="material-symbols-outlined">close</i>
+      </button>
     </div>
+
+    <div class="mobile-menu-links">
+      <a class="mobile-menu-link" href="#home">
+        <span class="menu-idx">01</span>
+        <span class="menu-text">Home</span>
+      </a>
+      <a class="mobile-menu-link" href="#stats">
+        <span class="menu-idx">02</span>
+        <span class="menu-text">Impact & Stats</span>
+      </a>
+      <a class="mobile-menu-link" href="#about">
+        <span class="menu-idx">03</span>
+        <span class="menu-text">About</span>
+      </a>
+      <a class="mobile-menu-link" href="#capabilities">
+        <span class="menu-idx">04</span>
+        <span class="menu-text">Capabilities</span>
+      </a>
+      <a class="mobile-menu-link" href="#work">
+        <span class="menu-idx">05</span>
+        <span class="menu-text">Projects</span>
+      </a>
+      <a class="mobile-menu-link" href="#services">
+        <span class="menu-idx">06</span>
+        <span class="menu-text">Services</span>
+      </a>
+      <a class="mobile-menu-link" href="#pricing">
+        <span class="menu-idx">07</span>
+        <span class="menu-text">Pricing Plans</span>
+      </a>
+      <a class="mobile-menu-link" href="#testimonials">
+        <span class="menu-idx">08</span>
+        <span class="menu-text">Client Reviews</span>
+      </a>
+      <a class="mobile-menu-link" href="#process">
+        <span class="menu-idx">09</span>
+        <span class="menu-text">Methodology</span>
+      </a>
+      <a class="mobile-menu-link" href="#faq">
+        <span class="menu-idx">10</span>
+        <span class="menu-text">FAQ</span>
+      </a>
+      <a class="mobile-menu-link" href="#contact">
+        <span class="menu-idx">11</span>
+        <span class="menu-text">Contact</span>
+      </a>
+    </div>
+
     <div class="mobile-menu-footer">
-      <span class="font-label-caps">© <span class="current-year">2026</span> W3LALIT.DEV — SIKAR, RAJASTHAN</span>
+      <a class="btn-primary w-full text-center" href="#contact">Initialize Project Inquiry</a>
+      <div class="mobile-contact-snippet">
+        <span class="font-label-caps">DIRECT: Sainilalit2751@gmail.com</span>
+        <span class="font-label-caps">LOCATION: Sikar, Rajasthan, India</span>
+      </div>
     </div>
   </div>
 
@@ -144,51 +200,56 @@
       <div class="hero-meta">
         <div class="status-pill">
           <span class="pulse-indicator"></span>
-          <span class="font-label-mono">Available now — let's collaborate on your next big idea</span>
+          <span class="font-label-mono">AVAILABLE FOR HIRE — WORLDWIDE & LOCAL</span>
         </div>
       </div>
 
       <div class="hero-title">
-        <span class="font-label-mono text-primary uppercase tracking-widest block mb-4 tech-bracket">Full-Stack Engineer & Founder @ W3Lalitsaini</span>
-        <h1 class="font-display-xl">Building Digital<br>Products That Matter.</h1>
+        <span class="font-label-mono text-primary uppercase tracking-widest block mb-3 tech-bracket">Full-Stack Engineer & Founder @ W3Lalitsaini</span>
+        <h1 class="font-display-xl">Building Digital<br><span class="gradient-text">Products That Matter.</span></h1>
       </div>
 
       <div class="hero-grid">
         <div class="hero-desc">
-          <p class="font-body-lg">Specializing in modern web applications, SaaS platforms, and high-converting digital experiences. Crafting scalable architectures with React, Next.js, Node.js, and clean engineering.</p>
+          <p class="font-body-lg">Specializing in high-performance web applications, SaaS platforms, and scalable digital solutions. Blending architectural restraint and clean engineering with seamless UI/UX.</p>
         </div>
 
         <div class="hero-actions">
-          <a class="btn-primary" href="#work">View Selected Work</a>
-          <a class="btn-secondary" href="#contact">Get In Touch</a>
+          <a class="btn-primary" href="#work">
+            <span>View Projects</span>
+            <i class="material-symbols-outlined">arrow_forward</i>
+          </a>
+          <a class="btn-secondary" href="#contact">
+            <span>Get In Touch</span>
+          </a>
         </div>
       </div>
 
       <div class="marquee-container">
-        <span class="marquee-badge">React.js</span>
-        <span class="marquee-divider">|</span>
-        <span class="marquee-badge">Next.js</span>
-        <span class="marquee-divider">|</span>
-        <span class="marquee-badge">Node.js</span>
-        <span class="marquee-divider">|</span>
-        <span class="marquee-badge">TypeScript</span>
-        <span class="marquee-divider">|</span>
-        <span class="marquee-badge">MongoDB</span>
-        <span class="marquee-divider">|</span>
-        <span class="marquee-badge">Tailwind CSS</span>
-        <span class="marquee-divider">|</span>
-        <span class="marquee-badge">GSAP</span>
-        <span class="marquee-divider">|</span>
-        <span class="marquee-badge">Express.js</span>
-        <span class="marquee-divider">|</span>
-        <span class="marquee-badge">PostgreSQL</span>
-        <span class="marquee-divider">|</span>
-        <span class="marquee-badge">REST APIs</span>
+        <span class="marquee-tag">React.js</span>
+        <span class="marquee-divider">•</span>
+        <span class="marquee-tag">Next.js</span>
+        <span class="marquee-divider">•</span>
+        <span class="marquee-tag">Node.js</span>
+        <span class="marquee-divider">•</span>
+        <span class="marquee-tag">TypeScript</span>
+        <span class="marquee-divider">•</span>
+        <span class="marquee-tag">MongoDB</span>
+        <span class="marquee-divider">•</span>
+        <span class="marquee-tag">Tailwind CSS</span>
+        <span class="marquee-divider">•</span>
+        <span class="marquee-tag">GSAP</span>
+        <span class="marquee-divider">•</span>
+        <span class="marquee-tag">Express.js</span>
+        <span class="marquee-divider">•</span>
+        <span class="marquee-tag">PostgreSQL</span>
+        <span class="marquee-divider">•</span>
+        <span class="marquee-tag">REST APIs</span>
       </div>
     </section>
 
     <!-- -------------------------------------------------------------
-           Stats Section (01 / STATS)
+           Stats Section (01 / IMPACT)
            ------------------------------------------------------------- -->
     <section id="stats" class="section-compact">
       <div class="about-grid">
@@ -199,31 +260,39 @@
         <div class="about-content">
           <div class="stats-grid">
             <div class="stat-card">
+              <div class="stat-card-accent"></div>
               <div class="stat-number-wrap">
                 <span class="stat-number" data-target="20">0</span><span class="stat-suffix">+</span>
               </div>
               <p class="stat-label">Projects Completed</p>
+              <span class="stat-sub">SaaS & Web Applications</span>
             </div>
 
             <div class="stat-card">
+              <div class="stat-card-accent"></div>
               <div class="stat-number-wrap">
                 <span class="stat-number" data-target="10">0</span><span class="stat-suffix">+</span>
               </div>
               <p class="stat-label">Happy Clients</p>
+              <span class="stat-sub">Worldwide Collaborations</span>
             </div>
 
             <div class="stat-card">
+              <div class="stat-card-accent"></div>
               <div class="stat-number-wrap">
                 <span class="stat-number" data-target="4">0</span><span class="stat-suffix">+</span>
               </div>
               <p class="stat-label">Years Experience</p>
+              <span class="stat-sub">Continuous Web Mastery</span>
             </div>
 
             <div class="stat-card">
+              <div class="stat-card-accent"></div>
               <div class="stat-number-wrap">
                 <span class="stat-number" data-target="100">0</span><span class="stat-suffix">%</span>
               </div>
               <p class="stat-label">Client Satisfaction</p>
+              <span class="stat-sub">Speed & Code Quality</span>
             </div>
           </div>
         </div>
@@ -243,14 +312,14 @@
           <h2 class="font-headline-lg">I am an MCA graduate and passionate developer focused on creating robust, scalable systems wrapped in intuitive interfaces.</h2>
 
           <div class="about-philosophy">
-            <div>
-              <span class="font-label-caps block mb-3">Domain & Location</span>
-              <p class="font-body-md">Based in Sikar, Rajasthan, India. Bridging the gap between complex backend architectures and seamless user experiences. Specializing in high-performance web applications that drive tangible business results.</p>
+            <div class="philosophy-item">
+              <span class="font-label-caps block mb-2 text-primary">Domain & Location</span>
+              <p class="font-body-md">Based in Sikar, Rajasthan, India. Bridging the gap between complex backend architectures and seamless user experiences. Specializing in high-performance web applications that drive real-world conversion.</p>
             </div>
 
-            <div>
-              <span class="font-label-caps block mb-3">Engineering Approach</span>
-              <p class="font-body-md">Architectural Restraint. Writing clean, maintainable code is just as important as designing an interface that gets out of the user's way. Focus on speed, security, and conversion.</p>
+            <div class="philosophy-item">
+              <span class="font-label-caps block mb-2 text-primary">Engineering Approach</span>
+              <p class="font-body-md">Architectural Restraint. Writing clean, maintainable code is just as important as designing an interface that gets out of the user's way. Focus on speed, security, responsiveness, and conversion.</p>
             </div>
           </div>
         </div>
@@ -303,7 +372,7 @@
                 <span class="chip">GraphQL</span>
                 <span class="chip">Microservices</span>
                 <span class="chip">WebSockets</span>
-                <span class="chip">Authentication (JWT/OAuth)</span>
+                <span class="chip">JWT / OAuth</span>
               </div>
             </div>
 
@@ -324,7 +393,7 @@
               </div>
             </div>
 
-            <!-- SEO & Deployment -->
+            <!-- SEO & Cloud -->
             <div class="bento-card" style="grid-column: span 6;">
               <div class="bento-card-bg"></div>
               <div class="bento-card-header">
@@ -630,6 +699,7 @@
                 <i class="material-symbols-outlined">code</i>
               </div>
               <div class="service-title-col">
+                <span class="service-number">01</span>
                 <h3>Full-Stack Web Development</h3>
                 <div class="chip-group">
                   <span class="chip">React</span>
@@ -651,6 +721,7 @@
                 <i class="material-symbols-outlined">palette</i>
               </div>
               <div class="service-title-col">
+                <span class="service-number">02</span>
                 <h3>Custom UI/UX & Web Design</h3>
                 <div class="chip-group">
                   <span class="chip">Tailwind</span>
@@ -672,6 +743,7 @@
                 <i class="material-symbols-outlined">trending_up</i>
               </div>
               <div class="service-title-col">
+                <span class="service-number">03</span>
                 <h3>SEO Optimization & Speed</h3>
                 <div class="chip-group">
                   <span class="chip">Core Web Vitals</span>
@@ -693,6 +765,7 @@
                 <i class="material-symbols-outlined">dns</i>
               </div>
               <div class="service-title-col">
+                <span class="service-number">04</span>
                 <h3>API & Backend Architecture</h3>
                 <div class="chip-group">
                   <span class="chip">REST</span>
@@ -807,6 +880,7 @@
           <div class="testimonials-grid">
             <!-- Review 1 -->
             <div class="testimonial-card">
+              <div class="testimonial-stars">★★★★★</div>
               <p class="testimonial-quote">"Lalit's designs completely transformed our online presence. His attention to detail and ability to understand our brand vision was remarkable. Highly recommend for anyone looking for a sleek, user-friendly website!"</p>
               <div class="testimonial-author">
                 <img src="assets/images/avatars/john.jpg" alt="John Doe" class="testimonial-avatar">
@@ -819,6 +893,7 @@
 
             <!-- Review 2 -->
             <div class="testimonial-card">
+              <div class="testimonial-stars">★★★★★</div>
               <p class="testimonial-quote">"The website turned out better than we imagined. Lalit was extremely professional, communicative, and delivered work that was visually stunning and optimized for conversions. We couldn’t be happier with the results."</p>
               <div class="testimonial-author">
                 <img src="assets/images/avatars/sara.jpg" alt="Sarah Lee" class="testimonial-avatar">
@@ -831,6 +906,7 @@
 
             <!-- Review 3 -->
             <div class="testimonial-card">
+              <div class="testimonial-stars">★★★★★</div>
               <p class="testimonial-quote">"Delivered ahead of time and exceeded expectations. Lalit ensured our SaaS platform’s design was modern, lightweight, and scalable for the long term. His workflow and creativity are unmatched."</p>
               <div class="testimonial-author">
                 <img src="assets/images/avatars/umesh.jpg" alt="Umesh" class="testimonial-avatar">
@@ -843,6 +919,7 @@
 
             <!-- Review 4 -->
             <div class="testimonial-card">
+              <div class="testimonial-stars">★★★★★</div>
               <p class="testimonial-quote">"Lalit delivered a website that not only looks amazing but also performs flawlessly. From pixel-perfect UI to clean backend integrations, the whole experience was smooth and enjoyable. Truly a reliable developer!"</p>
               <div class="testimonial-author">
                 <img src="assets/images/avatars/priya.jpg" alt="Priya Sharma" class="testimonial-avatar">
