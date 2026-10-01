@@ -2,18 +2,1191 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/logos/favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/logos/favicon.ico">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#db6d2d">
-  <title>w3Lalit Web Developer</title>
-  <meta name="description" content="Lalit's modern web services.">
+  <!-- -------------------------------------------------------------
+       SEO & Metadata
+       ------------------------------------------------------------- -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lalit Saini | Full-Stack Web Developer & Systems Engineer Portfolio</title>
+
+  <meta name="description"
+    content="Lalit Saini (W3Lalitsaini) is a professional Full-Stack Web Developer specializing in React, Next.js, Node.js, SaaS applications, and modern web solutions based in Sikar, Rajasthan, India.">
+  <meta name="keywords"
+    content="Lalit Saini, W3Lalit, W3Lalitsaini, Full-Stack Developer, Freelance Web Developer, React Developer, Next.js Expert, Node.js Engineer, MCA Developer, Web Development Sikar, Web Development Rajasthan, India Freelancer, SaaS Developer">
+  <meta name="author" content="Lalit Saini">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://w3lalitsaini.com/">
+
+  <link rel="icon" type="image/x-icon" href="assets/images/logo.ico">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://w3lalitsaini.com/">
+  <meta property="og:title" content="Lalit Saini | Full-Stack Developer & Product Builder">
+  <meta property="og:description"
+    content="Architecting scalable digital products, SaaS platforms, and high-converting web applications. Explore my portfolio and selected works.">
+  <meta property="og:image" content="assets/images/og-ab.jpg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://w3lalitsaini.com/">
+  <meta property="twitter:title" content="Lalit Saini | Full-Stack Developer & Product Builder">
+  <meta property="twitter:description"
+    content="Architecting scalable digital products, SaaS platforms, and high-converting web applications. Explore my portfolio and selected works.">
+  <meta property="twitter:image" content="assets/images/og-ab.jpg">
+
+  <!-- JSON-LD Structured Data for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Lalit Saini",
+    "alternateName": "W3Lalitsaini",
+    "jobTitle": "Full-Stack Web Developer",
+    "url": "https://w3lalitsaini.com",
+    "image": "https://w3lalitsaini.com/assets/images/avatars/2.jpg",
+    "email": "mailto:Sainilalit2751@gmail.com",
+    "telephone": "+91-9887374746",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Sikar",
+      "addressRegion": "Rajasthan",
+      "addressCountry": "IN"
+    },
+    "sameAs": [
+      "https://github.com/w3lalitsaini",
+      "https://linkedin.com/in/w3lalitsaini",
+      "https://instagram.com/w3lalitsaini",
+      "https://facebook.com/w3lalitsaini"
+    ]
+  }
+  </script>
+
+  <!-- -------------------------------------------------------------
+       Fonts & Styling
+       ------------------------------------------------------------- -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Premium Fonts: Space Grotesk (Display), Outfit (Headings), Inter (Body), JetBrains Mono (Technical/Labels) -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Material Symbols for Minimalist Icons -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <div id="root"></div>
-  <script type="module" src="/src/main.jsx"></script>
+
+  <!-- Blueprint Grid Background Pattern -->
+  <div class="grid-bg"></div>
+  <div class="blueprint-lines"></div>
+
+  <!-- Custom Cursor -->
+  <div class="custom-cursor" id="customCursor"></div>
+  <div class="custom-cursor-dot" id="customCursorDot"></div>
+
+  <!-- -------------------------------------------------------------
+       Navigation Section
+       ------------------------------------------------------------- -->
+  <nav class="navbar" id="mainNavbar">
+    <div class="navbar-container">
+      <a class="nav-logo" href="#home">W3LALIT<span>.DEV</span></a>
+
+      <div class="nav-links">
+        <a class="nav-link active" href="#home">Home</a>
+        <a class="nav-link" href="#about">About</a>
+        <a class="nav-link" href="#work">Projects</a>
+        <a class="nav-link" href="#services">Services</a>
+        <a class="nav-link" href="#pricing">Pricing</a>
+        <a class="nav-link" href="#testimonials">Reviews</a>
+        <a class="nav-link" href="#faq">FAQ</a>
+        <a class="nav-link" href="#contact">Contact</a>
+      </div>
+
+      <a class="btn-primary" href="#contact">Let's Talk</a>
+
+      <button class="nav-menu-btn" id="menuToggle" aria-label="Toggle Menu">
+        <i class="material-symbols-outlined">menu</i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Slide-out Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-links">
+      <a class="mobile-menu-link" href="#home">Home</a>
+      <a class="mobile-menu-link" href="#about">About</a>
+      <a class="mobile-menu-link" href="#work">Projects</a>
+      <a class="mobile-menu-link" href="#services">Services</a>
+      <a class="mobile-menu-link" href="#pricing">Pricing</a>
+      <a class="mobile-menu-link" href="#testimonials">Reviews</a>
+      <a class="mobile-menu-link" href="#faq">FAQ</a>
+      <a class="mobile-menu-link" href="#contact">Contact</a>
+    </div>
+    <div class="mobile-menu-footer">
+      <span class="font-label-caps">© <span class="current-year">2026</span> W3LALIT.DEV — SIKAR, RAJASTHAN</span>
+    </div>
+  </div>
+
+  <!-- Main Wrapper -->
+  <div class="main-wrapper">
+
+    <!-- -------------------------------------------------------------
+           Hero Section
+           ------------------------------------------------------------- -->
+    <section class="hero-section" id="home">
+      <div class="hero-meta">
+        <div class="status-pill">
+          <span class="pulse-indicator"></span>
+          <span class="font-label-mono">Available now — let's collaborate on your next big idea</span>
+        </div>
+      </div>
+
+      <div class="hero-title">
+        <span class="font-label-mono text-primary uppercase tracking-widest block mb-4 tech-bracket">Full-Stack Engineer & Founder @ W3Lalitsaini</span>
+        <h1 class="font-display-xl">Building Digital<br>Products That Matter.</h1>
+      </div>
+
+      <div class="hero-grid">
+        <div class="hero-desc">
+          <p class="font-body-lg">Specializing in modern web applications, SaaS platforms, and high-converting digital experiences. Crafting scalable architectures with React, Next.js, Node.js, and clean engineering.</p>
+        </div>
+
+        <div class="hero-actions">
+          <a class="btn-primary" href="#work">View Selected Work</a>
+          <a class="btn-secondary" href="#contact">Get In Touch</a>
+        </div>
+      </div>
+
+      <div class="marquee-container">
+        <span class="marquee-badge">React.js</span>
+        <span class="marquee-divider">|</span>
+        <span class="marquee-badge">Next.js</span>
+        <span class="marquee-divider">|</span>
+        <span class="marquee-badge">Node.js</span>
+        <span class="marquee-divider">|</span>
+        <span class="marquee-badge">TypeScript</span>
+        <span class="marquee-divider">|</span>
+        <span class="marquee-badge">MongoDB</span>
+        <span class="marquee-divider">|</span>
+        <span class="marquee-badge">Tailwind CSS</span>
+        <span class="marquee-divider">|</span>
+        <span class="marquee-badge">GSAP</span>
+        <span class="marquee-divider">|</span>
+        <span class="marquee-badge">Express.js</span>
+        <span class="marquee-divider">|</span>
+        <span class="marquee-badge">PostgreSQL</span>
+        <span class="marquee-divider">|</span>
+        <span class="marquee-badge">REST APIs</span>
+      </div>
+    </section>
+
+    <!-- -------------------------------------------------------------
+           Stats Section (01 / STATS)
+           ------------------------------------------------------------- -->
+    <section id="stats" class="section-compact">
+      <div class="about-grid">
+        <div class="section-label">
+          <span class="font-label-mono text-primary tech-bracket">01 / IMPACT</span>
+        </div>
+
+        <div class="about-content">
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-number-wrap">
+                <span class="stat-number" data-target="20">0</span><span class="stat-suffix">+</span>
+              </div>
+              <p class="stat-label">Projects Completed</p>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-number-wrap">
+                <span class="stat-number" data-target="10">0</span><span class="stat-suffix">+</span>
+              </div>
+              <p class="stat-label">Happy Clients</p>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-number-wrap">
+                <span class="stat-number" data-target="4">0</span><span class="stat-suffix">+</span>
+              </div>
+              <p class="stat-label">Years Experience</p>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-number-wrap">
+                <span class="stat-number" data-target="100">0</span><span class="stat-suffix">%</span>
+              </div>
+              <p class="stat-label">Client Satisfaction</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- -------------------------------------------------------------
+           About Section (02 / ABOUT)
+           ------------------------------------------------------------- -->
+    <section id="about">
+      <div class="about-grid">
+        <div class="section-label">
+          <span class="font-label-mono text-primary tech-bracket">02 / ABOUT</span>
+        </div>
+
+        <div class="about-content">
+          <h2 class="font-headline-lg">I am an MCA graduate and passionate developer focused on creating robust, scalable systems wrapped in intuitive interfaces.</h2>
+
+          <div class="about-philosophy">
+            <div>
+              <span class="font-label-caps block mb-3">Domain & Location</span>
+              <p class="font-body-md">Based in Sikar, Rajasthan, India. Bridging the gap between complex backend architectures and seamless user experiences. Specializing in high-performance web applications that drive tangible business results.</p>
+            </div>
+
+            <div>
+              <span class="font-label-caps block mb-3">Engineering Approach</span>
+              <p class="font-body-md">Architectural Restraint. Writing clean, maintainable code is just as important as designing an interface that gets out of the user's way. Focus on speed, security, and conversion.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- -------------------------------------------------------------
+           Capabilities (03 / CAPABILITIES)
+           ------------------------------------------------------------- -->
+    <section id="capabilities">
+      <div class="about-grid">
+        <div class="section-label">
+          <span class="font-label-mono text-primary tech-bracket">03 / CAPABILITIES</span>
+        </div>
+
+        <div class="about-content">
+          <h2 class="font-headline-md">Technical Stack & Infrastructure</h2>
+
+          <div class="bento-grid">
+            <!-- Frontend -->
+            <div class="bento-card" style="grid-column: span 6;">
+              <div class="bento-card-bg"></div>
+              <div class="bento-card-header">
+                <i class="material-symbols-outlined">web</i>
+                <h3 class="bento-card-title">Frontend & UI Engineering</h3>
+              </div>
+              <div class="chip-group">
+                <span class="chip">React.js</span>
+                <span class="chip">Next.js</span>
+                <span class="chip">TypeScript</span>
+                <span class="chip">Tailwind CSS</span>
+                <span class="chip">GSAP</span>
+                <span class="chip">Framer Motion</span>
+                <span class="chip">HTML5/CSS3</span>
+                <span class="chip">Responsive UI</span>
+              </div>
+            </div>
+
+            <!-- Backend -->
+            <div class="bento-card" style="grid-column: span 6;">
+              <div class="bento-card-bg"></div>
+              <div class="bento-card-header">
+                <i class="material-symbols-outlined">dns</i>
+                <h3 class="bento-card-title">Backend Architecture</h3>
+              </div>
+              <div class="chip-group">
+                <span class="chip">Node.js</span>
+                <span class="chip">Express.js</span>
+                <span class="chip">REST APIs</span>
+                <span class="chip">GraphQL</span>
+                <span class="chip">Microservices</span>
+                <span class="chip">WebSockets</span>
+                <span class="chip">Authentication (JWT/OAuth)</span>
+              </div>
+            </div>
+
+            <!-- Database -->
+            <div class="bento-card" style="grid-column: span 6;">
+              <div class="bento-card-bg"></div>
+              <div class="bento-card-header">
+                <i class="material-symbols-outlined">database</i>
+                <h3 class="bento-card-title">Data Storage & Caching</h3>
+              </div>
+              <div class="chip-group">
+                <span class="chip">MongoDB</span>
+                <span class="chip">PostgreSQL</span>
+                <span class="chip">Mongoose ORM</span>
+                <span class="chip">Prisma</span>
+                <span class="chip">Redis</span>
+                <span class="chip">SQL & NoSQL</span>
+              </div>
+            </div>
+
+            <!-- SEO & Deployment -->
+            <div class="bento-card" style="grid-column: span 6;">
+              <div class="bento-card-bg"></div>
+              <div class="bento-card-header">
+                <i class="material-symbols-outlined">rocket_launch</i>
+                <h3 class="bento-card-title">SEO, Cloud & Optimization</h3>
+              </div>
+              <div class="chip-group">
+                <span class="chip">SEO Optimization</span>
+                <span class="chip">Core Web Vitals</span>
+                <span class="chip">Vercel</span>
+                <span class="chip">Git / GitHub</span>
+                <span class="chip">CI/CD Pipelines</span>
+                <span class="chip">Performance Profiling</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- -------------------------------------------------------------
+           Projects (04 / PROJECTS)
+           ------------------------------------------------------------- -->
+    <section id="work">
+      <div class="about-grid" style="margin-bottom: 2rem;">
+        <div class="section-label">
+          <span class="font-label-mono text-primary tech-bracket">04 / PROJECTS</span>
+        </div>
+
+        <div class="about-content">
+          <h2 class="font-headline-lg">Things I've Built</h2>
+          <p class="font-body-lg">A curated showcase of applications engineered for performance, scalability, and robust user interaction.</p>
+        </div>
+      </div>
+
+      <div class="filters-container">
+        <button class="filter-btn active" data-filter="all">ALL</button>
+        <button class="filter-btn" data-filter="saas">SAAS</button>
+        <button class="filter-btn" data-filter="ecommerce">E-COMMERCE</button>
+        <button class="filter-btn" data-filter="web">WEB APPS</button>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Project 1: Atoz Movies -->
+        <article class="project-card" data-category="saas" data-title="Atoz Movies" data-subtitle="SaaS Movie Review Website" data-image="assets/images/projects/Movie.jpg" data-link="https://atozmovies.in/" data-tags="React,Tailwind,NodeJS" data-desc="A dynamic movie review platform where users can explore, read reviews, and share ratings. Built with React, Tailwind, and NodeJS with a clean UI, instant search, and real-time updates.">
+          <div class="project-media">
+            <div class="project-status">LIVE</div>
+            <img src="assets/images/projects/Movie.jpg" alt="Atoz Movies SaaS Website Preview" loading="lazy">
+          </div>
+          <div class="project-content">
+            <div class="project-tags">
+              <span class="project-tag">React</span>
+              <span class="project-tag">Tailwind</span>
+              <span class="project-tag">NodeJS</span>
+            </div>
+            <h3 class="project-title">Atoz Movies</h3>
+            <p class="project-desc">A dynamic movie review platform where users can explore, read reviews, and share ratings. Built with React, Tailwind, and NodeJS with a clean UI and real-time updates.</p>
+            <div class="project-action-row">
+              <a class="project-link" href="https://atozmovies.in/" target="_blank" rel="noopener">
+                Visit Project
+                <i class="material-symbols-outlined">arrow_forward</i>
+              </a>
+              <button class="project-modal-btn" aria-label="View Atoz Movies details">Details</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2: Shayam Cafe -->
+        <article class="project-card" data-category="ecommerce" data-title="Shayam Cafe" data-subtitle="Modern Cafe & Ordering Platform" data-image="assets/images/projects/shayam-cafe.jpg" data-link="https://shayam-cafe.vercel.app/" data-tags="React,Tailwind,EmailJS,Cart" data-desc="A stylish and responsive cafe website showcasing delicious menu items, customer testimonials, a photo gallery, and a smooth cart & checkout experience. Built with React and Tailwind CSS with EmailJS integration for real-time order notifications.">
+          <div class="project-media">
+            <div class="project-status">LIVE</div>
+            <img src="assets/images/projects/shayam-cafe.jpg" alt="Shayam Cafe Website Preview" loading="lazy">
+          </div>
+          <div class="project-content">
+            <div class="project-tags">
+              <span class="project-tag">React</span>
+              <span class="project-tag">Tailwind</span>
+              <span class="project-tag">EmailJS</span>
+            </div>
+            <h3 class="project-title">Shayam Cafe</h3>
+            <p class="project-desc">A stylish and responsive cafe website showcasing delicious menu items, customer testimonials, a photo gallery, and a smooth cart & checkout experience.</p>
+            <div class="project-action-row">
+              <a class="project-link" href="https://shayam-cafe.vercel.app/" target="_blank" rel="noopener">
+                Visit Project
+                <i class="material-symbols-outlined">arrow_forward</i>
+              </a>
+              <button class="project-modal-btn" aria-label="View Shayam Cafe details">Details</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 3: Resume Builder SaaS -->
+        <article class="project-card" data-category="saas" data-title="Resume Builder" data-subtitle="Modern Resume Builder SAAS" data-image="assets/images/projects/resume-builder.jpg" data-link="https://devfolio-saas.vercel.app/" data-tags="React,Tailwind,Node.js,html2pdf.js" data-desc="A professional resume builder web application that allows users to select templates, edit content in real-time, and download A4-formatted resumes as PDFs. Built with React, Tailwind CSS, Node.js, and html2pdf.js with live preview and custom styling.">
+          <div class="project-media">
+            <div class="project-status">LIVE</div>
+            <img src="assets/images/projects/resume-builder.jpg" alt="Resume Builder SaaS Preview" loading="lazy">
+          </div>
+          <div class="project-content">
+            <div class="project-tags">
+              <span class="project-tag">React</span>
+              <span class="project-tag">Tailwind</span>
+              <span class="project-tag">html2pdf.js</span>
+            </div>
+            <h3 class="project-title">Resume Builder</h3>
+            <p class="project-desc">A professional SaaS application that allows users to select templates, edit content in real-time, and download A4-formatted resumes as high-resolution PDFs.</p>
+            <div class="project-action-row">
+              <a class="project-link" href="https://devfolio-saas.vercel.app/" target="_blank" rel="noopener">
+                Visit Project
+                <i class="material-symbols-outlined">arrow_forward</i>
+              </a>
+              <button class="project-modal-btn" aria-label="View Resume Builder details">Details</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 4: Shekhawati Furniture House -->
+        <article class="project-card" data-category="ecommerce" data-title="Furniture House" data-subtitle="Furniture E-Commerce Platform" data-image="assets/images/projects/Furnture.jpg" data-link="https://furniture-web-rho-ten.vercel.app/" data-tags="HTML,CSS,JavaScript,E-Commerce" data-desc="An elegant and functional e-commerce platform for premium architectural furniture shopping. Fully responsive, featuring regional heritage designs, smooth browsing, and speed optimization.">
+          <div class="project-media">
+            <div class="project-status">LIVE</div>
+            <img src="assets/images/projects/Furnture.jpg" alt="Furniture House E-Commerce Preview" loading="lazy">
+          </div>
+          <div class="project-content">
+            <div class="project-tags">
+              <span class="project-tag">HTML5</span>
+              <span class="project-tag">CSS3</span>
+              <span class="project-tag">JavaScript</span>
+            </div>
+            <h3 class="project-title">Furniture House</h3>
+            <p class="project-desc">An elegant and functional e-commerce platform for premium furniture shopping. Fully responsive, secure checkout flow, and optimized for speed.</p>
+            <div class="project-action-row">
+              <a class="project-link" href="https://furniture-web-rho-ten.vercel.app/" target="_blank" rel="noopener">
+                Visit Project
+                <i class="material-symbols-outlined">arrow_forward</i>
+              </a>
+              <button class="project-modal-btn" aria-label="View Furniture House details">Details</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 5: Rajasthan Tourism -->
+        <article class="project-card" data-category="web" data-title="Rajasthan Tourism" data-subtitle="Tourism Agency Platform" data-image="assets/images/projects/Toursim.jpg" data-link="https://rajasthan-tourism.vercel.app/" data-tags="React,Tailwind,API Integration" data-desc="A visually captivating tourism website featuring destination highlights, curated tour packages, interactive regional maps, and mobile-friendly booking inquiries.">
+          <div class="project-media">
+            <div class="project-status">LIVE</div>
+            <img src="assets/images/projects/Toursim.jpg" alt="Rajasthan Tourism Preview" loading="lazy">
+          </div>
+          <div class="project-content">
+            <div class="project-tags">
+              <span class="project-tag">React</span>
+              <span class="project-tag">Tailwind</span>
+              <span class="project-tag">APIs</span>
+            </div>
+            <h3 class="project-title">Rajasthan Tourism</h3>
+            <p class="project-desc">A visually captivating tourism website featuring destination highlights, curated tour packages, and mobile-friendly booking features.</p>
+            <div class="project-action-row">
+              <a class="project-link" href="https://rajasthan-tourism.vercel.app/" target="_blank" rel="noopener">
+                Visit Project
+                <i class="material-symbols-outlined">arrow_forward</i>
+              </a>
+              <button class="project-modal-btn" aria-label="View Rajasthan Tourism details">Details</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 6: Univ Result -->
+        <article class="project-card" data-category="web" data-title="Univ Result" data-subtitle="Dynamic Blogging Web App" data-image="assets/images/projects/3.jpg" data-link="https://univresult.in/" data-tags="Next.js,Tailwind,MongoDB,NodeJS" data-desc="A high-performance blog platform with categories, search filters, and fully responsive design. Built with Next.js, Tailwind CSS, MongoDB, and NodeJS for fast content delivery.">
+          <div class="project-media">
+            <div class="project-status">LIVE</div>
+            <img src="assets/images/projects/3.jpg" alt="Univ Result Blog App Preview" loading="lazy">
+          </div>
+          <div class="project-content">
+            <div class="project-tags">
+              <span class="project-tag">Next.js</span>
+              <span class="project-tag">MongoDB</span>
+              <span class="project-tag">NodeJS</span>
+            </div>
+            <h3 class="project-title">Univ Result</h3>
+            <p class="project-desc">A dynamic blogging platform with categories, instant search filters, and full mobile optimization built with Next.js and MongoDB.</p>
+            <div class="project-action-row">
+              <a class="project-link" href="https://univresult.in/" target="_blank" rel="noopener">
+                Visit Project
+                <i class="material-symbols-outlined">arrow_forward</i>
+              </a>
+              <button class="project-modal-btn" aria-label="View Univ Result details">Details</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 7: Lali Studio -->
+        <article class="project-card" data-category="web" data-title="Lali Studio" data-subtitle="Digital Photography Studio" data-image="assets/images/projects/Studio.jpg" data-link="https://photoghraphy-studio.vercel.app/" data-tags="HTML,CSS,JavaScript,APIs" data-desc="A sleek portfolio and booking website for professional photography with masonry galleries, service packages, and client inquiry forms.">
+          <div class="project-media">
+            <div class="project-status">LIVE</div>
+            <img src="assets/images/projects/Studio.jpg" alt="Lali Studio Preview" loading="lazy">
+          </div>
+          <div class="project-content">
+            <div class="project-tags">
+              <span class="project-tag">HTML5</span>
+              <span class="project-tag">CSS3</span>
+              <span class="project-tag">JavaScript</span>
+            </div>
+            <h3 class="project-title">Lali Studio</h3>
+            <p class="project-desc">A professional photography studio website with galleries, booking services, and package details. Sleek UI optimized for high visual impact.</p>
+            <div class="project-action-row">
+              <a class="project-link" href="https://photoghraphy-studio.vercel.app/" target="_blank" rel="noopener">
+                Visit Project
+                <i class="material-symbols-outlined">arrow_forward</i>
+              </a>
+              <button class="project-modal-btn" aria-label="View Lali Studio details">Details</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 8: Portfolio Website -->
+        <article class="project-card" data-category="web" data-title="Portfolio Website" data-subtitle="Personal Portfolio Showcase" data-image="assets/images/projects/portfolio2.jpg" data-link="https://portfolio-v1-eta-ten.vercel.app/" data-tags="HTML,CSS,JS,GSAP" data-desc="A clean, responsive personal portfolio showcasing projects, skills, and achievements with smooth animations and interactive components.">
+          <div class="project-media">
+            <div class="project-status">LIVE</div>
+            <img src="assets/images/projects/portfolio2.jpg" alt="Portfolio Preview" loading="lazy">
+          </div>
+          <div class="project-content">
+            <div class="project-tags">
+              <span class="project-tag">HTML5</span>
+              <span class="project-tag">CSS3</span>
+              <span class="project-tag">GSAP</span>
+            </div>
+            <h3 class="project-title">Portfolio Website</h3>
+            <p class="project-desc">A clean, responsive personal portfolio showcasing projects, skills, and achievements with smooth animations and micro-interactions.</p>
+            <div class="project-action-row">
+              <a class="project-link" href="https://portfolio-v1-eta-ten.vercel.app/" target="_blank" rel="noopener">
+                Visit Project
+                <i class="material-symbols-outlined">arrow_forward</i>
+              </a>
+              <button class="project-modal-btn" aria-label="View Portfolio details">Details</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 9: Rajasthan Landing -->
+        <article class="project-card" data-category="web" data-title="Rangilo Rajasthan" data-subtitle="Heritage Landing Experience" data-image="assets/images/projects/Rajastha.jpg" data-link="https://rajasthan-view.vercel.app/" data-tags="HTML,CSS,JS,GSAP" data-desc="A striking landing page promoting Rajasthan heritage and tourism with engaging imagery, fluid GSAP scroll interactions, and conversion-focused CTAs.">
+          <div class="project-media">
+            <div class="project-status">LIVE</div>
+            <img src="assets/images/projects/Rajastha.jpg" alt="Rajasthan Landing Preview" loading="lazy">
+          </div>
+          <div class="project-content">
+            <div class="project-tags">
+              <span class="project-tag">HTML5</span>
+              <span class="project-tag">GSAP</span>
+              <span class="project-tag">Animation</span>
+            </div>
+            <h3 class="project-title">Rajasthan Landing</h3>
+            <p class="project-desc">A striking landing page promoting Rajasthan tourism with engaging imagery, fluid GSAP animations, and strong conversion CTAs.</p>
+            <div class="project-action-row">
+              <a class="project-link" href="https://rajasthan-view.vercel.app/" target="_blank" rel="noopener">
+                Visit Project
+                <i class="material-symbols-outlined">arrow_forward</i>
+              </a>
+              <button class="project-modal-btn" aria-label="View Rajasthan Landing details">Details</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 10: Info Blog -->
+        <article class="project-card" data-category="web" data-title="Info Blog" data-subtitle="Modern Tech & News Blog App" data-image="assets/images/projects/1.jpg" data-link="https://info.univresult.in/" data-tags="React,APIs,NodeJS" data-desc="A feature-rich tech blog built with React, NodeJS, and REST APIs. Fully responsive, clean layout, and optimized for an effortless reading experience.">
+          <div class="project-media">
+            <div class="project-status">LIVE</div>
+            <img src="assets/images/projects/1.jpg" alt="Info Blog Preview" loading="lazy">
+          </div>
+          <div class="project-content">
+            <div class="project-tags">
+              <span class="project-tag">React</span>
+              <span class="project-tag">NodeJS</span>
+              <span class="project-tag">REST APIs</span>
+            </div>
+            <h3 class="project-title">Info Blog</h3>
+            <p class="project-desc">A feature-rich blog built with React, NodeJS, and REST APIs. Fully responsive and optimized for speed and user engagement.</p>
+            <div class="project-action-row">
+              <a class="project-link" href="https://info.univresult.in/" target="_blank" rel="noopener">
+                Visit Project
+                <i class="material-symbols-outlined">arrow_forward</i>
+              </a>
+              <button class="project-modal-btn" aria-label="View Info Blog details">Details</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- -------------------------------------------------------------
+           Services Section (05 / SERVICES)
+           ------------------------------------------------------------- -->
+    <section id="services">
+      <div class="about-grid">
+        <div class="section-label">
+          <span class="font-label-mono text-primary tech-bracket">05 / SERVICES</span>
+        </div>
+
+        <div class="about-content">
+          <h2 class="font-headline-lg">What I Deliver</h2>
+          <p class="font-body-lg">Delivering robust, scalable, and high-performance digital solutions. From custom web design to complex full-stack applications engineered with precision.</p>
+
+          <div class="services-container">
+            <!-- Service 1 -->
+            <div class="service-row">
+              <div class="service-icon-col">
+                <i class="material-symbols-outlined">code</i>
+              </div>
+              <div class="service-title-col">
+                <h3>Full-Stack Web Development</h3>
+                <div class="chip-group">
+                  <span class="chip">React</span>
+                  <span class="chip">Node.js</span>
+                  <span class="chip">MongoDB</span>
+                </div>
+              </div>
+              <div class="service-desc-col">
+                <p class="font-body-md">End-to-end development of custom web applications and SaaS platforms. Architecting robust database schemas, clean REST/GraphQL APIs, and responsive interactive frontends.</p>
+                <div class="service-arrow">
+                  <i class="material-symbols-outlined">arrow_forward</i>
+                </div>
+              </div>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="service-row">
+              <div class="service-icon-col">
+                <i class="material-symbols-outlined">palette</i>
+              </div>
+              <div class="service-title-col">
+                <h3>Custom UI/UX & Web Design</h3>
+                <div class="chip-group">
+                  <span class="chip">Tailwind</span>
+                  <span class="chip">GSAP</span>
+                  <span class="chip">Design Systems</span>
+                </div>
+              </div>
+              <div class="service-desc-col">
+                <p class="font-body-md">Stunning, user-centric interfaces that elevate brand authority and drive conversions. Crafted with responsive grids, micro-interactions, and visual harmony.</p>
+                <div class="service-arrow">
+                  <i class="material-symbols-outlined">arrow_forward</i>
+                </div>
+              </div>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="service-row">
+              <div class="service-icon-col">
+                <i class="material-symbols-outlined">trending_up</i>
+              </div>
+              <div class="service-title-col">
+                <h3>SEO Optimization & Speed</h3>
+                <div class="chip-group">
+                  <span class="chip">Core Web Vitals</span>
+                  <span class="chip">Next.js</span>
+                  <span class="chip">Schema Data</span>
+                </div>
+              </div>
+              <div class="service-desc-col">
+                <p class="font-body-md">Rank higher on Google with optimized markup, blazing-fast load times, semantic metadata, structured data schemas, and keyword-focused architecture.</p>
+                <div class="service-arrow">
+                  <i class="material-symbols-outlined">arrow_forward</i>
+                </div>
+              </div>
+            </div>
+
+            <!-- Service 4 -->
+            <div class="service-row">
+              <div class="service-icon-col">
+                <i class="material-symbols-outlined">dns</i>
+              </div>
+              <div class="service-title-col">
+                <h3>API & Backend Architecture</h3>
+                <div class="chip-group">
+                  <span class="chip">REST</span>
+                  <span class="chip">Authentication</span>
+                  <span class="chip">Databases</span>
+                </div>
+              </div>
+              <div class="service-desc-col">
+                <p class="font-body-md">Designing secure, scalable backend architectures and third-party integrations (payment gateways, automated email notifications, database migrations).</p>
+                <div class="service-arrow">
+                  <i class="material-symbols-outlined">arrow_forward</i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- -------------------------------------------------------------
+           Pricing Section (06 / PRICING)
+           ------------------------------------------------------------- -->
+    <section id="pricing">
+      <div class="about-grid" style="margin-bottom: 2rem;">
+        <div class="section-label">
+          <span class="font-label-mono text-primary tech-bracket">06 / PRICING</span>
+        </div>
+
+        <div class="about-content">
+          <h2 class="font-headline-lg">Transparent Plans for Every Project</h2>
+          <p class="font-body-lg">Clear pricing with premium quality and lifetime value. Choose the tier that matches your business needs.</p>
+
+          <div class="pricing-grid">
+            <!-- Starter Plan -->
+            <div class="pricing-card">
+              <div class="pricing-header">
+                <h3 class="pricing-title">Starter</h3>
+                <p class="pricing-desc">Perfect for personal websites, portfolios, or small businesses.</p>
+                <div class="pricing-price-wrap">
+                  <span class="pricing-price">₹9,999</span>
+                  <span class="pricing-period">/ project</span>
+                </div>
+              </div>
+              <ul class="pricing-features">
+                <li><i class="material-symbols-outlined">check</i> 1–3 Pages Custom Website</li>
+                <li><i class="material-symbols-outlined">check</i> 100% Responsive & Mobile Friendly</li>
+                <li><i class="material-symbols-outlined">check</i> Basic SEO & Meta Tags Setup</li>
+                <li><i class="material-symbols-outlined">check</i> Contact Form Integration</li>
+                <li><i class="material-symbols-outlined">check</i> 1 Month Post-Launch Support</li>
+              </ul>
+              <a class="btn-secondary w-full" href="#contact">Choose Starter</a>
+            </div>
+
+            <!-- Professional Plan (Featured) -->
+            <div class="pricing-card featured">
+              <div class="pricing-badge">MOST POPULAR</div>
+              <div class="pricing-header">
+                <h3 class="pricing-title">Professional</h3>
+                <p class="pricing-desc">Great for growing businesses, startups, and high-conversion brands.</p>
+                <div class="pricing-price-wrap">
+                  <span class="pricing-price">₹17,999</span>
+                  <span class="pricing-period">/ project</span>
+                </div>
+              </div>
+              <ul class="pricing-features">
+                <li><i class="material-symbols-outlined">check</i> Up to 8 Custom Designed Pages</li>
+                <li><i class="material-symbols-outlined">check</i> Custom UI/UX & GSAP Micro-Interactions</li>
+                <li><i class="material-symbols-outlined">check</i> Advanced SEO & Google Schema Setup</li>
+                <li><i class="material-symbols-outlined">check</i> Lead Gen & Newsletter Integration</li>
+                <li><i class="material-symbols-outlined">check</i> 3 Months Priority Support</li>
+              </ul>
+              <a class="btn-primary w-full" href="#contact">Choose Professional</a>
+            </div>
+
+            <!-- Premium Plan -->
+            <div class="pricing-card">
+              <div class="pricing-header">
+                <h3 class="pricing-title">Premium / SaaS</h3>
+                <p class="pricing-desc">For complex web apps, full-stack SaaS, and custom backends.</p>
+                <div class="pricing-price-wrap">
+                  <span class="pricing-price">Custom</span>
+                  <span class="pricing-period">/ scope</span>
+                </div>
+              </div>
+              <ul class="pricing-features">
+                <li><i class="material-symbols-outlined">check</i> Unlimited Pages & Custom Layouts</li>
+                <li><i class="material-symbols-outlined">check</i> Full-Stack Architecture (MERN / Next.js)</li>
+                <li><i class="material-symbols-outlined">check</i> Custom Database, Auth & API Systems</li>
+                <li><i class="material-symbols-outlined">check</i> E-Commerce or SaaS Dashboard Ready</li>
+                <li><i class="material-symbols-outlined">check</i> 6 Months Dedicated Support</li>
+              </ul>
+              <a class="btn-secondary w-full" href="#contact">Inquire Custom</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- -------------------------------------------------------------
+           Testimonials Section (07 / REVIEWS)
+           ------------------------------------------------------------- -->
+    <section id="testimonials">
+      <div class="about-grid" style="margin-bottom: 2rem;">
+        <div class="section-label">
+          <span class="font-label-mono text-primary tech-bracket">07 / REVIEWS</span>
+        </div>
+
+        <div class="about-content">
+          <h2 class="font-headline-lg">What Clients & Partners Say</h2>
+          <p class="font-body-lg">Proven track record of delivering clean, scalable products and exceeding client expectations.</p>
+
+          <div class="testimonials-grid">
+            <!-- Review 1 -->
+            <div class="testimonial-card">
+              <p class="testimonial-quote">"Lalit's designs completely transformed our online presence. His attention to detail and ability to understand our brand vision was remarkable. Highly recommend for anyone looking for a sleek, user-friendly website!"</p>
+              <div class="testimonial-author">
+                <img src="assets/images/avatars/john.jpg" alt="John Doe" class="testimonial-avatar">
+                <div>
+                  <h4 class="testimonial-name">John Doe</h4>
+                  <p class="testimonial-role">CEO @ StartupX</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Review 2 -->
+            <div class="testimonial-card">
+              <p class="testimonial-quote">"The website turned out better than we imagined. Lalit was extremely professional, communicative, and delivered work that was visually stunning and optimized for conversions. We couldn’t be happier with the results."</p>
+              <div class="testimonial-author">
+                <img src="assets/images/avatars/sara.jpg" alt="Sarah Lee" class="testimonial-avatar">
+                <div>
+                  <h4 class="testimonial-name">Sarah Lee</h4>
+                  <p class="testimonial-role">Marketing Head @ Brandify</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Review 3 -->
+            <div class="testimonial-card">
+              <p class="testimonial-quote">"Delivered ahead of time and exceeded expectations. Lalit ensured our SaaS platform’s design was modern, lightweight, and scalable for the long term. His workflow and creativity are unmatched."</p>
+              <div class="testimonial-author">
+                <img src="assets/images/avatars/umesh.jpg" alt="Umesh" class="testimonial-avatar">
+                <div>
+                  <h4 class="testimonial-name">Umesh</h4>
+                  <p class="testimonial-role">Founder @ UDS</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Review 4 -->
+            <div class="testimonial-card">
+              <p class="testimonial-quote">"Lalit delivered a website that not only looks amazing but also performs flawlessly. From pixel-perfect UI to clean backend integrations, the whole experience was smooth and enjoyable. Truly a reliable developer!"</p>
+              <div class="testimonial-author">
+                <img src="assets/images/avatars/priya.jpg" alt="Priya Sharma" class="testimonial-avatar">
+                <div>
+                  <h4 class="testimonial-name">Priya Sharma</h4>
+                  <p class="testimonial-role">CTO @ TechNova</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- -------------------------------------------------------------
+           Methodology Section (08 / METHODOLOGY)
+           ------------------------------------------------------------- -->
+    <section id="process">
+      <div class="about-grid">
+        <div class="section-label">
+          <span class="font-label-mono text-primary tech-bracket">08 / METHODOLOGY</span>
+        </div>
+
+        <div class="about-content">
+          <h2 class="font-headline-md">How I Work</h2>
+
+          <div class="process-grid">
+            <!-- Step 1 -->
+            <div class="process-card">
+              <div class="process-header">
+                <i class="material-symbols-outlined">search</i>
+                <span>01</span>
+              </div>
+              <h3 class="process-title">Discover & Plan</h3>
+              <p class="process-desc">Deep dive into requirements, architecture planning, tech stack selection, and defining the project scope and timeline.</p>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="process-card">
+              <div class="process-header">
+                <i class="material-symbols-outlined">design_services</i>
+                <span>02</span>
+              </div>
+              <h3 class="process-title">Design & Architect</h3>
+              <p class="process-desc">System design, database modeling, API contract creation, and establishing the foundational component architecture.</p>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="process-card">
+              <div class="process-header">
+                <i class="material-symbols-outlined">terminal</i>
+                <span>03</span>
+              </div>
+              <h3 class="process-title">Build & Iterate</h3>
+              <p class="process-desc">Agile development cycles, writing clean, modular code with regular reviews and continuous integration practices.</p>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="process-card double-width">
+              <div class="process-content-inner">
+                <div class="process-header">
+                  <i class="material-symbols-outlined">bug_report</i>
+                  <span>04</span>
+                </div>
+                <h3 class="process-title">Test & Optimize</h3>
+                <p class="process-desc">Comprehensive testing across all browsers and devices. Performance profiling, Core Web Vitals checks, and SEO audits before release.</p>
+              </div>
+            </div>
+
+            <!-- Step 5 -->
+            <div class="process-card">
+              <div class="process-header">
+                <i class="material-symbols-outlined">rocket_launch</i>
+                <span>05</span>
+              </div>
+              <h3 class="process-title">Deploy & Scale</h3>
+              <p class="process-desc">Production deployment on Vercel/cloud, DNS setup, monitoring, and ongoing post-launch support.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- -------------------------------------------------------------
+           FAQ Section (09 / FAQ)
+           ------------------------------------------------------------- -->
+    <section id="faq">
+      <div class="about-grid" style="margin-bottom: 2rem;">
+        <div class="section-label">
+          <span class="font-label-mono text-primary tech-bracket">09 / FAQ</span>
+        </div>
+
+        <div class="about-content">
+          <h2 class="font-headline-lg">Frequently Asked Questions</h2>
+          <p class="font-body-lg">Everything you need to know about working together, pricing, hosting, and project workflow.</p>
+
+          <div class="faq-accordion">
+            <div class="faq-item">
+              <button class="faq-header" aria-expanded="false">
+                <span class="faq-question">Do you provide hosting and domain setup?</span>
+                <i class="material-symbols-outlined faq-icon">expand_more</i>
+              </button>
+              <div class="faq-body">
+                <p class="font-body-md">Yes! I can help you select, purchase, and configure the ideal hosting (Vercel, AWS, Hostinger) and domain for your project. Domain and hosting provider fees are billed directly to you with zero markups.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-header" aria-expanded="false">
+                <span class="faq-question">What payment methods do you accept?</span>
+                <i class="material-symbols-outlined faq-icon">expand_more</i>
+              </button>
+              <div class="faq-body">
+                <p class="font-body-md">I accept UPI, direct Bank Transfers (NEFT/IMPS), PayPal, and major Credit/Debit Cards for both Indian and international clients.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-header" aria-expanded="false">
+                <span class="faq-question">How many revisions are included in a project?</span>
+                <i class="material-symbols-outlined faq-icon">expand_more</i>
+              </button>
+              <div class="faq-body">
+                <p class="font-body-md">All standard packages include 2 to 3 revision rounds to ensure the final output is 100% aligned with your expectations. Additional revisions are handled on a transparent hourly or milestone basis.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-header" aria-expanded="false">
+                <span class="faq-question">Can you maintain and update my website after launch?</span>
+                <i class="material-symbols-outlined faq-icon">expand_more</i>
+              </button>
+              <div class="faq-body">
+                <p class="font-body-md">Yes, I provide ongoing maintenance plans that include security updates, speed optimization, regular database backups, content updates, and feature enhancements.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- -------------------------------------------------------------
+           Contact Section (10 / CONTACT)
+           ------------------------------------------------------------- -->
+    <section id="contact">
+      <div class="about-grid" style="margin-bottom: 2rem;">
+        <div class="section-label">
+          <span class="font-label-mono text-primary tech-bracket">10 / CONTACT</span>
+        </div>
+
+        <div class="about-content">
+          <h2 class="font-headline-lg">Have a Project in Mind?</h2>
+          <p class="font-body-lg">Let's build something exceptional together. Drop a line for project inquiries, technical consulting, or just to say hello.</p>
+        </div>
+      </div>
+
+      <div class="contact-grid">
+        <!-- Contact Form -->
+        <div class="contact-form-container">
+          <div class="contact-sys-tag">
+            <span class="font-label-caps">SYS.FORM.INPUT</span>
+          </div>
+
+          <form class="contact-form" id="contactForm" action="https://formspree.io/f/mqakppne" method="POST">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="name">NAME</label>
+                <input class="form-input" id="name" name="name" type="text" placeholder="John Doe" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="email">EMAIL</label>
+                <input class="form-input" id="email" name="email" type="email" placeholder="john@example.com" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="phone">PHONE (OPTIONAL)</label>
+                <input class="form-input" id="phone" name="phone" type="tel" placeholder="+91 98873 74746">
+              </div>
+
+              <div class="form-group form-select-wrapper">
+                <label class="form-label" for="projectType">PROJECT SCOPE</label>
+                <select class="form-input" id="projectType" name="project_type" required>
+                  <option value="" disabled selected>Select scope...</option>
+                  <option value="saas">SaaS Application</option>
+                  <option value="web">Custom Web Application</option>
+                  <option value="ecommerce">E-Commerce Store</option>
+                  <option value="portfolio">Portfolio / Business Site</option>
+                  <option value="consulting">Technical Consulting</option>
+                </select>
+                <i class="material-symbols-outlined">expand_more</i>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="message">MESSAGE</label>
+              <textarea class="form-input" id="message" name="message" rows="4"
+                placeholder="Tell me about your project goals, timeline, and requirements..." required></textarea>
+            </div>
+
+            <div class="form-footer">
+              <span class="form-status" id="formStatus">STATUS: AWAITING_INPUT</span>
+              <button class="btn-primary" type="submit">
+                SEND MESSAGE
+                <i class="material-symbols-outlined">arrow_forward</i>
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Contact Info Column -->
+        <div class="contact-info-col">
+          <div class="info-card">
+            <div class="contact-sys-tag">
+              <span class="font-label-caps">SYS.CONTACT.DIR</span>
+            </div>
+            <div class="info-card-header">
+              <i class="material-symbols-outlined">mail</i>
+              <h3 class="info-card-title">Direct Line</h3>
+              <p class="info-card-desc">For inquiries, contract consulting, or quick project calls.</p>
+            </div>
+            <div class="direct-links-wrap">
+              <a class="info-card-link" href="mailto:Sainilalit2751@gmail.com" id="emailCopyBtn" title="Click to copy email">
+                <span>Sainilalit2751@gmail.com</span>
+                <i class="material-symbols-outlined" id="emailCopyIcon">content_copy</i>
+              </a>
+              <a class="info-card-link" href="tel:+919887374746" id="phoneCopyBtn" title="Click to call or copy">
+                <span>+91 98873 74746</span>
+                <i class="material-symbols-outlined">call</i>
+              </a>
+              <div class="info-location">
+                <i class="material-symbols-outlined">location_on</i>
+                <span>Sikar, Rajasthan, India</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <div class="contact-sys-tag">
+              <span class="font-label-caps">SYS.NET.NODES</span>
+            </div>
+            <h3 class="font-label-mono text-primary mb-4">Digital Presence</h3>
+            <div class="social-links-list">
+              <a class="social-link-item" href="https://github.com/w3lalitsaini" target="_blank" rel="noopener">
+                <span>GitHub (@w3lalitsaini)</span>
+                <i class="material-symbols-outlined">north_east</i>
+              </a>
+              <a class="social-link-item" href="https://linkedin.com/in/w3lalitsaini" target="_blank" rel="noopener">
+                <span>LinkedIn (@w3lalitsaini)</span>
+                <i class="material-symbols-outlined">north_east</i>
+              </a>
+              <a class="social-link-item" href="https://instagram.com/w3lalitsaini" target="_blank" rel="noopener">
+                <span>Instagram (@w3lalitsaini)</span>
+                <i class="material-symbols-outlined">north_east</i>
+              </a>
+              <a class="social-link-item" href="https://facebook.com/w3lalitsaini" target="_blank" rel="noopener">
+                <span>Facebook (@w3lalitsaini)</span>
+                <i class="material-symbols-outlined">north_east</i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div> <!-- End Main Wrapper -->
+
+  <!-- -------------------------------------------------------------
+       Project Detail Modal Dialog
+       ------------------------------------------------------------- -->
+  <div class="project-modal-backdrop" id="projectModal" aria-hidden="true" role="dialog">
+    <div class="project-modal-container">
+      <button class="project-modal-close" id="modalCloseBtn" aria-label="Close Project Modal">
+        <i class="material-symbols-outlined">close</i>
+      </button>
+
+      <div class="modal-media-wrap">
+        <img id="modalImg" src="" alt="Project Preview">
+      </div>
+
+      <div class="modal-body">
+        <div class="chip-group" id="modalTags"></div>
+        <h3 class="modal-title" id="modalTitle">Project Title</h3>
+        <p class="modal-subtitle font-label-mono text-primary" id="modalSubtitle">Category Subtitle</p>
+        <p class="modal-desc font-body-md" id="modalDesc">Project description goes here.</p>
+
+        <div class="modal-action-row">
+          <a class="btn-primary" id="modalVisitLink" href="#" target="_blank" rel="noopener">
+            Visit Project Website
+            <i class="material-symbols-outlined">arrow_forward</i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- -------------------------------------------------------------
+       Footer Section
+       ------------------------------------------------------------- -->
+  <footer class="footer">
+    <div class="main-wrapper">
+      <div class="footer-top">
+        <div class="footer-cta">
+          <p class="font-headline-lg">Let's build something exceptional together.</p>
+          <a class="footer-email-link" href="mailto:Sainilalit2751@gmail.com">Sainilalit2751@gmail.com</a>
+        </div>
+
+        <div class="footer-newsletter">
+          <span class="font-label-mono text-primary mb-2 block">Stay In Touch</span>
+          <p class="font-body-md mb-4 text-muted">Get updates on new SaaS builds, web templates, and technical insights.</p>
+          <form class="newsletter-form" id="newsletterForm" onsubmit="event.preventDefault(); alert('Thank you for subscribing!'); this.reset();">
+            <input type="email" class="form-input" placeholder="Enter your email" required>
+            <button type="submit" class="btn-primary" style="padding: 10px 20px;">Join</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          <span class="footer-logo">W3LALIT</span>
+          <p class="footer-copyright">© <span class="current-year">2026</span> LALIT SAINI (W3LALITSAINI) — SIKAR, RAJASTHAN, INDIA.</p>
+        </div>
+
+        <div class="footer-socials">
+          <a class="footer-social-link" href="https://github.com/w3lalitsaini" target="_blank" rel="noopener">GitHub</a>
+          <a class="footer-social-link" href="https://linkedin.com/in/w3lalitsaini" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="footer-social-link" href="https://instagram.com/w3lalitsaini" target="_blank" rel="noopener">Instagram</a>
+          <a class="footer-social-link" href="https://facebook.com/w3lalitsaini" target="_blank" rel="noopener">Facebook</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- -------------------------------------------------------------
+       JS Libraries (GSAP, ScrollTrigger, Lenis for smooth scroll)
+       ------------------------------------------------------------- -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
+
+  <!-- Custom Application Logic -->
+  <script src="script.js"></script>
 </body>
 
 </html>
